@@ -12,46 +12,55 @@
             --accent-color: #2d6a4f;
             --bg-color: #f4f9f4;
             --text-color: #1b4332;
+            --gold-color: #b79455;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); padding-bottom: 30px; }
+        body { background-color: var(--bg-color); color: var(--text-color); padding-bottom: 50px; }
 
-        /* Welcome & Landing Header */
-        .main-landing-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white; padding: 40px 20px; text-align: center;
-            border-radius: 0 0 30px 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        /* Bismillah & Madrasa Top Header */
+        .bismillah-text {
+            text-align: center; font-size: 18px; color: var(--gold-color);
+            font-weight: bold; padding-top: 15px; background: var(--primary-color);
+            letter-spacing: 1px; margin-bottom: -1px;
         }
-        .main-landing-header .logo-icon { font-size: 50px; margin-bottom: 10px; color: #d8f3dc; }
-        .main-landing-header h1 { font-size: 26px; font-weight: bold; margin-bottom: 5px; }
-        .main-landing-header p { font-size: 14px; opacity: 0.9; }
+        
+        .main-landing-header {
+            background: var(--primary-color);
+            color: white; padding: 25px 20px 35px 20px; text-align: center;
+            border-radius: 0 0 35px 35px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        .main-landing-header .logo-icon { font-size: 45px; margin-bottom: 10px; color: var(--gold-color); }
+        .main-landing-header h1 { font-size: 26px; font-weight: bold; margin-bottom: 5px; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); }
+        .main-landing-header p { font-size: 13px; opacity: 0.85; }
 
         .notice-ticker {
             background: #fff3cd; color: #856404; padding: 12px 15px;
-            margin: 15px auto; max-width: 700px; border-radius: 10px;
-            font-size: 14px; font-weight: bold; border-left: 5px solid #ffc107;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; gap: 10px; align-items: center;
+            margin: 15px auto; max-width: 750px; border-radius: 12px;
+            font-size: 14px; font-weight: bold; border-left: 5px solid var(--gold-color);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.04); display: flex; gap: 10px; align-items: center;
         }
 
-        .container { padding: 15px; max-width: 700px; margin: 0 auto; }
+        .container { padding: 15px; max-width: 750px; margin: 0 auto; }
         
         .card {
-            background: white; border-radius: 15px; padding: 20px; margin-bottom: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(64, 145, 108, 0.1);
+            background: white; border-radius: 16px; padding: 22px; margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid rgba(64, 145, 108, 0.12);
         }
         .card h3 {
-            font-size: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;
-            color: var(--primary-color); border-bottom: 2px solid var(--bg-color); padding-bottom: 8px;
+            font-size: 16px; margin-bottom: 18px; display: flex; align-items: center; gap: 10px;
+            color: var(--primary-color); border-bottom: 2px solid var(--bg-color); padding-bottom: 10px;
         }
 
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
         input, select, textarea {
             width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #c2ffd8;
             border-radius: 8px; background-color: #fafdfb; color: var(--text-color); font-size: 14px; outline: none;
+            transition: 0.3s;
         }
-        label { font-size: 13px; font-weight: bold; display: block; margin-bottom: 4px; color: var(--primary-color); }
+        input:focus, select:focus, textarea:focus { border-color: var(--secondary-color); box-shadow: 0 0 5px rgba(64,145,108,0.2); }
+        label { font-size: 13px; font-weight: bold; display: block; margin-bottom: 5px; color: var(--primary-color); }
         
         .btn {
             background-color: var(--primary-color); color: white; padding: 12px; border: none;
@@ -64,11 +73,6 @@
         .btn-sec { background-color: var(--secondary-color); }
 
         .hidden { display: none !important; }
-        
-        .class-badge {
-            background: var(--bg-color); color: var(--primary-color); padding: 3px 8px;
-            border-radius: 5px; font-size: 11px; font-weight: bold; border: 1px solid #c2ffd8;
-        }
 
         .item-list { list-style: none; }
         .item-list li {
@@ -80,17 +84,18 @@
         .att-present { background-color: #d8f3dc; color: #1b4332; }
         .att-absent { background-color: #f8d7da; color: #721c24; }
 
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #e2f4e8; padding: 8px; text-align: center; font-size: 13px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.01); }
+        th, td { border: 1px solid #e2f4e8; padding: 10px; text-align: center; font-size: 13px; }
         th { background: var(--primary-color); color: white; }
 
-        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; background: #fff; padding: 10px 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: #fff; padding: 12px 18px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
     </style>
 </head>
 <body>
 
-<!-- 1. LANDING & HOME INFO SCREEN -->
+<!-- 1. LANDING & OPEN INFO SCREEN -->
 <div id="landing-container">
+    <div class="bismillah-text">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
     <div class="main-landing-header">
         <div class="logo-icon"><i id="lbl-logo" class="fa-solid fa-mosque"></i></div>
         <h1 id="lbl-madrasa-name">দারুল উলুম মাদরাসা</h1>
@@ -99,15 +104,15 @@
 
     <!-- NOTICE TICKER -->
     <div class="notice-ticker">
-        <i class="fa-solid fa-bullhorn" style="color: #ffc107;"></i>
-        <marquee id="ticker-text" behavior="scroll" direction="left">মাদরাসায় আপনাকে স্বাগতম। সর্বশেষ নোটিশ দেখতে লগইন করুন বা নোটিশবোর্ড লক্ষ্য করুন।</marquee>
+        <i class="fa-solid fa-bullhorn" style="color: var(--gold-color);"></i>
+        <marquee id="ticker-text" behavior="scroll" direction="left">মাদরাসায় আপনাকে স্বাগতম। সর্বশেষ নোটিশ দেখতে নিচে চোখ রাখুন।</marquee>
     </div>
 
     <!-- LOGIN PANEL -->
     <div class="container" id="login-box">
         <div class="card">
-            <h3><i class="fa-solid fa-shield-halved"></i> ড্যাশবোর্ড লগইন প্যানেল</h3>
-            <label>আপনার রোল নির্বাচন করুন</label>
+            <h3><i class="fa-solid fa-shield-halved"></i> ডিজিটাল ড্যাশবোর্ড লগইন প্যানেল</h3>
+            <label>ইউজার টাইপ বা রোল</label>
             <select id="login-role" onchange="onRoleChange()">
                 <option value="student">শিক্ষার্থী (Student)</option>
                 <option value="teacher">শিক্ষক (Teacher)</option>
@@ -124,48 +129,50 @@
                 </select>
             </div>
 
-            <label id="id-label">আইডি নম্বর</label>
+            <label id="id-label">শিক্ষার্থী আইডি / রোল নম্বর</label>
             <input type="text" id="login-id" placeholder="আপনার আইডি দিন">
             
             <div id="pass-row" class="hidden">
-                <label>পাসওয়ার্ড</label>
-                <input type="password" id="login-pass" placeholder="পাসওয়ার্ড দিন">
+                <label>লগইন পাসওয়ার্ড</label>
+                <input type="password" id="login-pass" placeholder="পাসওয়ার্ড লিখুন">
             </div>
 
-            <button class="btn" onclick="processLogin()"><i class="fa-solid fa-right-to-bracket"></i> প্রবেশ করুন</button>
+            <button class="btn" onclick="processLogin()"><i class="fa-solid fa-right-to-bracket"></i> ড্যাশবোর্ডে প্রবেশ করুন</button>
         </div>
 
         <!-- PUBLIC NOTICE VIEW -->
         <div class="card">
-            <h3><i class="fa-solid fa-bell"></i> সাধারণ নোটিশ বোর্ড</h3>
+            <h3><i class="fa-solid fa-bell"></i> মাদরাসা নোটিশ বোর্ড</h3>
             <ul id="public-notice-list" class="item-list"></ul>
         </div>
     </div>
 </div>
 
-<!-- 2. INTERNAL DASHBOARD SCREEN -->
+<!-- 2. INTERNAL MAIN DASHBOARD SCREEN -->
 <div id="dashboard-container" class="hidden">
     <div class="container">
         <div class="top-bar">
             <div>
                 <h4 id="dash-user-name">ব্যবহারকারী</h4>
-                <p style="font-size: 11px; color: #666;" id="dash-user-role">রোল</p>
+                <p style="font-size: 11px; color: #666; font-weight: bold;" id="dash-user-role">রোল</p>
             </div>
             <button class="btn btn-danger btn-sm" onclick="processLogout()"><i class="fa-solid fa-sign-out-alt"></i> লগআউট</button>
         </div>
 
-        <!-- PASSWORD CHANGE CARD FOR TEACHERS / ADMIN -->
-        <div id="card-change-pass" class="card hidden">
+        <!-- PASSWORD CHANGE CARD FOR ALL ROLES -->
+        <div id="card-change-pass" class="card">
             <h3><i class="fa-solid fa-key"></i> পাসওয়ার্ড পরিবর্তন অপশন</h3>
-            <input type="password" id="new-password-val" placeholder="নতুন পাসওয়ার্ড লিখুন">
-            <button class="btn btn-sm" onclick="changePassword()"><i class="fa-solid fa-lock-open"></i> পাসওয়ার্ড আপডেট</button>
+            <div class="grid-2">
+                <input type="password" id="new-password-val" placeholder="নতুন পাসওয়ার্ড লিখুন">
+                <button class="btn" onclick="changePassword()"><i class="fa-solid fa-lock-open"></i> পাসওয়ার্ড আপডেট</button>
+            </div>
         </div>
 
-        <!-- --- TEACHER / STUDENT / ADMIN INTERFACES --- -->
+        <!-- --- WORKPANELS --- -->
 
-        <!-- DIARY SYSTEM (CLASS-WISE) -->
+        <!-- DIARY SYSTEM (CLASS DEDICATED) -->
         <div id="card-diary" class="card hidden">
-            <h3><i class="fa-solid fa-book-bookmark"></i> শ্রেণীভিত্তিক দৈনিক ডায়েরি</h3>
+            <h3><i class="fa-solid fa-book-bookmark"></i> শ্রেণীভিত্তিক দৈনিক ডায়েরি (এক চাপে সবার নিকট)</h3>
             
             <div id="diary-filter-row">
                 <label>শ্রেণী সিলেক্ট করুন</label>
@@ -177,32 +184,34 @@
                 </select>
             </div>
 
-            <label>তারিখ নির্বাচন করুন</label>
+            <label>তারিখ নির্ধারণ</label>
             <input type="date" id="diary-date" onchange="viewDiaryData()">
 
-            <!-- Input area for teachers -->
+            <!-- One click massive action input for teachers/admin -->
             <div id="diary-teacher-inputs" class="hidden">
-                <textarea id="diary-content" rows="4" placeholder="আজকের পড়া এবং বাড়ির কাজ এখানে লিখুন..."></textarea>
-                <button class="btn btn-sec" onclick="saveDiaryData()"><i class="fa-solid fa-save"></i> ডায়েরি পোস্ট করুন</button>
+                <textarea id="diary-content" rows="4" placeholder="আজকের পড়া বা বাড়ির কাজ এখানে লিখুন। এখানে সেভ করা মাত্রই উক্ত শ্রেণীর সকল ছাত্রের ড্যাশবোর্ডে এক চাপে চলে যাবে..."></textarea>
+                <button class="btn btn-sec" onclick="saveDiaryData()"><i class="fa-solid fa-bolt"></i> এক চাপে ডায়েরি পোস্ট করুন</button>
             </div>
 
-            <!-- View area for student/everyone -->
-            <div id="diary-view-box" style="background: var(--bg-color); padding: 12px; border-radius: 8px; margin-top: 10px; min-height: 50px; font-size: 14px; white-space: pre-line;">
+            <!-- Dashboard Output -->
+            <div id="diary-view-box" style="background: var(--bg-color); padding: 15px; border-radius: 10px; margin-top: 10px; min-height: 60px; font-size: 14px; white-space: pre-line; border: 1px dashed var(--secondary-color);">
                 কোনো ডায়েরি রেকর্ড পাওয়া যায়নি।
             </div>
         </div>
 
-        <!-- ATTENDANCE SYSTEM (CLASS-WISE) -->
+        <!-- ATTENDANCE BOARD (CLASS DEDICATED) -->
         <div id="card-attendance" class="card hidden">
-            <h3><i class="fa-solid fa-user-check"></i> দৈনিক হাজিরা বোর্ড (তারিখ অনুযায়ী)</h3>
-            <label>শ্রেণী নির্বাচন</label>
-            <select id="att-class-select" onchange="loadAttendanceStudents()">
-                <option value="শিশু">শিশু শ্রেণী</option>
-                <option value="১ম">১ম শ্রেণী</option>
-                <option value="২য়">২য় শ্রেণী</option>
-                <option value="৩য়">৩য় শ্রেণী</option>
-            </select>
-            <label>তারিখ</label>
+            <h3><i class="fa-solid fa-user-check"></i> দৈনিক হাজিরা খাতা (শ্রেণীভিত্তিক)</h3>
+            <div id="att-filter-row">
+                <label>শ্রেণী নির্বাচন</label>
+                <select id="att-class-select" onchange="loadAttendanceStudents()">
+                    <option value="শিশু">শিশু শ্রেণী</option>
+                    <option value="১ম">১ম শ্রেণী</option>
+                    <option value="২য়">২য় শ্রেণী</option>
+                    <option value="৩য়">৩য় শ্রেণী</option>
+                </select>
+            </div>
+            <label>হাজিরার তারিখ</label>
             <input type="date" id="att-date" onchange="loadAttendanceStudents()">
             
             <ul id="att-students-list" class="item-list"></ul>
@@ -211,70 +220,78 @@
 
         <!-- FEES & PAYMENTS -->
         <div id="card-fees" class="card hidden">
-            <h3><i class="fa-solid fa-wallet"></i> বেতন ও ফি ট্রানজেকশন</h3>
+            <h3><i class="fa-solid fa-wallet"></i> বেতন ও মাসিক ফি প্যানেল</h3>
             <div id="fees-admin-inputs" class="hidden">
-                <label>শিক্ষার্থী নির্বাচন করুন</label>
+                <label>শিক্ষার্থী নির্বাচন (সব শ্রেণী হতে)</label>
                 <select id="fees-student-id"></select>
-                <input type="text" id="fees-purpose" placeholder="ফির বিবরণ (যেমন: মে মাসের বেতন)">
+                <input type="text" id="fees-purpose" placeholder="ফির বিবরণ (যেমন: রমজান মাসের বেতন)">
                 <input type="number" id="fees-amount" placeholder="টাকার পরিমাণ">
-                <button class="btn" onclick="collectStudentFee()">ফি কালেকশন সম্পন্ন করুন</button>
+                <button class="btn" onclick="collectStudentFee()">ফি কালেকশন রিসিট তৈরি করুন</button>
             </div>
             <div style="margin-top: 15px;">
-                <h4>ফি ট্রানজেকশন রেকর্ডস</h4>
+                <h4>ফি ট্রানজেকশন হিস্ট্রি ও রেকর্ডস</h4>
                 <ul id="fees-log-list" class="item-list" style="margin-top:10px;"></ul>
             </div>
         </div>
 
-        <!-- ADMIN SUPER CONTROL PANEL -->
+        <!-- SUPER ADMIN PLATFORM CONTROL -->
         <div id="card-admin-control" class="card hidden">
-            <h3><i class="fa-solid fa-gears"></i> সুপার এডমিন কন্ট্রোল প্যানেল</h3>
+            <h3><i class="fa-solid fa-gears"></i> মাদরাসা কন্ট্রোল ও কনফিগারেশন প্যানেল</h3>
             
-            <!-- Edit Madrasa Profile -->
-            <div style="border: 1px dashed var(--secondary-color); padding: 12px; border-radius: 8px; margin-bottom: 15px;">
-                <h4><i class="fa-solid fa-edit"></i> মাদরাসা প্রোফাইল এডিট</h4>
+            <!-- Edit Profile -->
+            <div style="border: 1px dashed var(--secondary-color); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                <h4><i class="fa-solid fa-edit"></i> মাদরাসার মূল প্রোফাইল এডিট</h4>
                 <label>মাদরাসার নাম</label>
                 <input type="text" id="cfg-name">
                 <label>ঠিকানা</label>
                 <input type="text" id="cfg-address">
                 <label>লোগো আইকন ক্লাস (FontAwesome)</label>
-                <input type="text" id="cfg-logo" placeholder="fa-solid fa-mosque">
-                <button class="btn btn-sm btn-sec" onclick="updateProfile()"><i class="fa-solid fa-rotate"></i> প্রোফাইল আপডেট</button>
+                <input type="text" id="cfg-logo">
+                <button class="btn btn-sm btn-sec" onclick="updateProfile()"><i class="fa-solid fa-rotate"></i> প্রোফাইল সংরক্ষণ করুন</button>
             </div>
 
-            <!-- Student entry -->
-            <div style="border: 1px dashed var(--secondary-color); padding: 12px; border-radius: 8px; margin-bottom: 15px;">
-                <h4><i class="fa-solid fa-user-plus"></i> নতুন ছাত্র/ছাত্রী এন্ট্রি</h4>
-                <label>শ্রেণী</label>
+            <!-- Complete Student Profile Input (Dedicated Classes) -->
+            <div style="border: 1px dashed var(--secondary-color); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                <h4><i class="fa-solid fa-user-plus"></i> সম্পূর্ণ তথ্য সহ নতুন শিক্ষার্থী এন্ট্রি</h4>
+                <label>কোন শ্রেণীতে এড করতে চান?</label>
                 <select id="new-std-class">
                     <option value="শিশু">শিশু শ্রেণী</option>
                     <option value="১ম">১ম শ্রেণী</option>
                     <option value="২য়">২য় শ্রেণী</option>
                     <option value="৩য়">৩য় শ্রেণী</option>
                 </select>
-                <input type="text" id="new-std-name" placeholder="শিক্ষার্থীর নাম">
-                <input type="text" id="new-std-id" placeholder="আইডি / রোল নম্বর">
-                <button class="btn btn-sm" onclick="addStudent()"><i class="fa-solid fa-plus"></i> স্টুডেন্ট সেভ করুন</button>
+                <div class="grid-2">
+                    <input type="text" id="new-std-name" placeholder="শিক্ষার্থীর নাম">
+                    <input type="text" id="new-std-id" placeholder="আইডি / রোল নম্বর">
+                </div>
+                <div class="grid-2">
+                    <input type="text" id="new-std-father" placeholder="পিতার নাম">
+                    <input type="text" id="new-std-phone" placeholder="অভিভাবকের মোবাইল নম্বর">
+                </div>
+                <button class="btn btn-sm" onclick="addStudent()"><i class="fa-solid fa-plus"></i> এই শ্রেণীতে শিক্ষার্থী এড করুন</button>
             </div>
 
-            <!-- Teacher Entry -->
-            <div style="border: 1px dashed var(--secondary-color); padding: 12px; border-radius: 8px; margin-bottom: 15px;">
-                <h4><i class="fa-solid fa-user-tie"></i> নতুন শিক্ষক এন্ট্রি</h4>
-                <input type="text" id="new-tch-name" placeholder="শিক্ষকের নাম">
-                <input type="text" id="new-tch-id" placeholder="শিক্ষক আইডি">
-                <input type="password" id="new-tch-pass" placeholder="লগইন পাসওয়ার্ড" value="123456">
-                <button class="btn btn-sm btn-sec" onclick="addTeacher()"><i class="fa-solid fa-plus"></i> শিক্ষক সেভ করুন</button>
+            <!-- Teacher Profile Input -->
+            <div style="border: 1px dashed var(--secondary-color); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                <h4><i class="fa-solid fa-user-tie"></i> নতুন শিক্ষক এন্ট্রি প্যানেল</h4>
+                <div class="grid-2">
+                    <input type="text" id="new-tch-name" placeholder="শিক্ষকের নাম">
+                    <input type="text" id="new-tch-id" placeholder="শিক্ষক আইডি">
+                </div>
+                <input type="password" id="new-tch-pass" placeholder="লগইন পাসওয়ার্ড (ডিফল্ট)" value="123456">
+                <button class="btn btn-sm btn-sec" onclick="addTeacher()"><i class="fa-solid fa-plus"></i> শিক্ষক যুক্ত করুন</button>
             </div>
 
-            <!-- Admin Post Notice -->
-            <div style="border: 1px dashed var(--secondary-color); padding: 12px; border-radius: 8px; margin-bottom: 15px;">
-                <h4><i class="fa-solid fa-bullhorn"></i> নতুন অফিশিয়াল নোটিশ পোস্ট</h4>
-                <textarea id="notice-input-text" rows="2" placeholder="নোটিশের বিস্তারিত লিখুন..."></textarea>
-                <button class="btn btn-sm" onclick="saveNotice()"><i class="fa-solid fa-paper-plane"></i> নোটিশ পাবলিশ করুন</button>
+            <!-- Notice Board Post -->
+            <div style="border: 1px dashed var(--secondary-color); padding: 15px; border-radius: 10px; margin-bottom: 15px;">
+                <h4><i class="fa-solid fa-bullhorn"></i> নতুন অফিশিয়াল নোটিশ পোস্ট করুন</h4>
+                <textarea id="notice-input-text" rows="2" placeholder="নোটিশের তথ্য লিখুন..."></textarea>
+                <button class="btn btn-sm" onclick="saveNotice()"><i class="fa-solid fa-paper-plane"></i> নোটিশ লাইভ করুন</button>
             </div>
 
-            <!-- Student Management & Remove Option -->
+            <!-- Student Remove and Management Section Separated by class -->
             <div>
-                <h4><i class="fa-solid fa-users"></i> বর্তমান শিক্ষার্থী তালিকা ও রিমুভ অপশন</h4>
+                <h4><i class="fa-solid fa-users"></i> শ্রেণীভিত্তিক শিক্ষার্থী তালিকা ও রিমুভ অপশন</h4>
                 <select id="manage-class-select" onchange="renderManageStudents()" style="margin-top:5px;">
                     <option value="শিশু">শিশু শ্রেণী</option>
                     <option value="১ম">১ম শ্রেণী</option>
@@ -288,28 +305,26 @@
     </div>
 </div>
 
-
 <script>
-    // --- APP DATABASE ENGINE (LOCALSTORAGE BASED) ---
+    // --- INTUATIVE ENGINE DATABASE ---
     let db = {
         profile: JSON.parse(localStorage.getItem('md_profile')) || { name: "দারুল উলুম মাদরাসা", address: "মিরসরাই, চট্টগ্রাম", logo: "fa-solid fa-mosque" },
         adminPass: localStorage.getItem('md_admin_pass') || "admin",
         teachers: JSON.parse(localStorage.getItem('md_teachers')) || [{ name: "মাওলানা মোহাম্মদ আলী", id: "t101", pass: "123456" }],
         students: JSON.parse(localStorage.getItem('md_students')) || [
-            { name: "আব্দুল্লাহ", id: "101", class: "শিশু" },
-            { name: "আহমেদ রাজা", id: "201", class: "১ম" }
+            { name: "আব্দুল্লাহ", id: "101", class: "শিশু", father: "করিম উল্লাহ", phone: "01800000000" },
+            { name: "আহমেদ রাজা", id: "201", class: "১ম", father: "নুরুল আবসার", phone: "01700000000" }
         ],
-        notices: JSON.parse(localStorage.getItem('md_notices')) || [{ id: 1, text: "আসসালামু আলাইকুম। মাদরাসার নতুন ডিজিটাল ড্যাশবোর্ডে আপনাকে স্বাগতম।", date: new Date().toLocaleDateString('bn-BD') }],
-        diary: JSON.parse(localStorage.getItem('md_diary')) || {}, // keyed by 'date_class'
-        attendance: JSON.parse(localStorage.getItem('md_attendance')) || {}, // keyed by 'date_class'
+        notices: JSON.parse(localStorage.getItem('md_notices')) || [{ id: 1, text: "আসসালামু আলাইকুম। মাদরাসার ড্যাশবোর্ডে আপনাকে স্বাগতম।", date: new Date().toLocaleDateString('bn-BD') }],
+        diary: JSON.parse(localStorage.getItem('md_diary')) || {}, // schema: { "2026-05-12_শিশু": "পড়া..." }
+        attendance: JSON.parse(localStorage.getItem('md_attendance')) || {}, // schema: { "2026-05-12_শিশু": { "student_id": "উপস্থিত" } }
         fees: JSON.parse(localStorage.getItem('md_fees')) || []
     };
 
     let session = null;
 
-    // --- APPLICATION STARTUP ---
+    // --- LIFE CYCLE START ---
     window.onload = function() {
-        // Set Date standard fields
         let todayStr = new Date().toISOString().split('T')[0];
         document.getElementById('diary-date').value = todayStr;
         document.getElementById('att-date').value = todayStr;
@@ -334,7 +349,6 @@
         document.getElementById('lbl-madrasa-address').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${db.profile.address}`;
         document.getElementById('lbl-logo').className = db.profile.logo;
         
-        // Update setup form
         document.getElementById('cfg-name').value = db.profile.name;
         document.getElementById('cfg-address').value = db.profile.address;
         document.getElementById('cfg-logo').value = db.profile.logo;
@@ -349,7 +363,7 @@
         if(role === 'student') {
             document.getElementById('class-select-row').classList.remove('hidden');
             document.getElementById('pass-row').classList.add('hidden');
-            document.getElementById('id-label').innerText = "আইডি / রোল নম্বর";
+            document.getElementById('id-label').innerText = "শিক্ষার্থী আইডি / রোল নম্বর";
         } else if(role === 'teacher') {
             document.getElementById('class-select-row').classList.add('hidden');
             document.getElementById('pass-row').classList.remove('hidden');
@@ -357,18 +371,18 @@
         } else {
             document.getElementById('class-select-row').classList.add('hidden');
             document.getElementById('pass-row').classList.remove('hidden');
-            document.getElementById('id-label').innerText = "এডমিন ইউজারনেম";
+            document.getElementById('id-label').innerText = "সুপার এডমিন ইউজারনেম (admin)";
         }
     }
 
-    // --- AUTHENTICATION CONTROLLER ---
+    // --- ACCESS CONTROLLER ---
     function processLogin() {
         let role = document.getElementById('login-role').value;
         let id = document.getElementById('login-id').value.trim();
         let pass = document.getElementById('login-pass').value;
         let cls = document.getElementById('login-class').value;
 
-        if(!id) return alert('দয়া করে আইডি প্রদান করুন!');
+        if(!id) return alert('দয়া করে আইডি নম্বরটি প্রদান করুন!');
 
         if(role === 'admin') {
             if(id === 'admin' && pass === db.adminPass) {
@@ -383,10 +397,9 @@
             let s = db.students.find(std => std.id === id && std.class === cls);
             if(s) {
                 session = { role: 'student', name: s.name, id: s.id, class: cls };
-            } else { return alert('এই শ্রেণীতে প্রদত্ত আইডিটি খুঁজে পাওয়া যায়নি!'); }
+            } else { return alert('এই শ্রেণীতে প্রদত্ত আইডি ও তথ্যের কোনো শিক্ষার্থী নেই!'); }
         }
 
-        // Direct Routing on Dashboard
         document.getElementById('landing-container').classList.add('hidden');
         document.getElementById('dashboard-container').classList.remove('hidden');
         
@@ -406,45 +419,47 @@
 
     function changePassword() {
         let newPass = document.getElementById('new-password-val').value.trim();
-        if(!newPass) return alert('পাসওয়ার্ড খালি হতে পারে না!');
+        if(!newPass) return alert('পাসওয়ার্ড খালি রাখা যাবে না!');
         
         if(session.role === 'admin') {
             db.adminPass = newPass;
         } else if(session.role === 'teacher') {
             let t = db.teachers.find(tch => tch.id === session.id);
             if(t) t.pass = newPass;
+        } else if(session.role === 'student') {
+            alert('শিক্ষার্থীদের পাসওয়ার্ড পরিবর্তনের প্রয়োজন নেই (আইডি ভিত্তিক লগইন)');
+            return;
         }
         syncStorage();
-        alert('পাসওয়ার্ড সফলভাবে পরিবর্তন হয়েছে!');
+        alert('পাসওয়ার্ড সফলভাবে পরিবর্তন সম্পন্ন হয়েছে!');
         document.getElementById('new-password-val').value = '';
     }
 
-    // --- DASHBOARD ROUTER VIEW ---
+    // --- DASHBOARD ROUTER PANELS ---
     function setupDashboardPanels() {
-        // Reset all screens
-        document.getElementById('card-change-pass').classList.add('hidden');
         document.getElementById('card-diary').classList.add('hidden');
         document.getElementById('card-attendance').classList.add('hidden');
         document.getElementById('card-fees').classList.add('hidden');
         document.getElementById('card-admin-control').classList.add('hidden');
         document.getElementById('diary-teacher-inputs').classList.add('hidden');
         document.getElementById('fees-admin-inputs').classList.add('hidden');
+        document.getElementById('diary-filter-row').style.display = 'block';
+        document.getElementById('att-filter-row').style.display = 'block';
 
         if(session.role === 'admin') {
-            document.getElementById('card-change-pass').classList.remove('hidden');
             document.getElementById('card-diary').classList.remove('hidden');
             document.getElementById('card-attendance').classList.remove('hidden');
             document.getElementById('card-fees').classList.remove('hidden');
             document.getElementById('card-admin-control').classList.remove('hidden');
-            
+            document.getElementById('diary-teacher-inputs').classList.remove('hidden');
             document.getElementById('fees-admin-inputs').classList.remove('hidden');
+            
             populateFeesStudentDropdown();
             renderManageStudents();
             viewDiaryData();
             loadAttendanceStudents();
             renderFeesLog();
         } else if(session.role === 'teacher') {
-            document.getElementById('card-change-pass').classList.remove('hidden');
             document.getElementById('card-diary').classList.remove('hidden');
             document.getElementById('card-attendance').classList.remove('hidden');
             document.getElementById('diary-teacher-inputs').classList.remove('hidden');
@@ -456,12 +471,12 @@
             document.getElementById('card-attendance').classList.remove('hidden');
             document.getElementById('card-fees').classList.remove('hidden');
             
-            // Auto lock to student class
+            // Auto lock controls for safety
             document.getElementById('diary-class-select').value = session.class;
-            document.getElementById('diary-filter-row').style.display = 'none'; // Force hide changing class
+            document.getElementById('diary-filter-row').style.display = 'none';
             
             document.getElementById('att-class-select').value = session.class;
-            document.getElementById('att-class-select').disabled = true;
+            document.getElementById('att-filter-row').style.display = 'none';
 
             viewDiaryData();
             renderStudentIndividualAttendance();
@@ -469,7 +484,7 @@
         }
     }
 
-    // --- 1. CLASS-WISE DIARY SYSTEM ---
+    // --- MASSIVE DIARY SYSTEM (ONE CLICK SEND) ---
     function viewDiaryData() {
         let cls = document.getElementById('diary-class-select').value;
         let date = document.getElementById('diary-date').value;
@@ -489,14 +504,16 @@
         let text = document.getElementById('diary-content').value.trim();
         let key = `${date}_${cls}`;
 
-        if(!date) return alert('তারিখ সিলেক্ট করুন!');
-        db.diary[key] = text;
+        if(!date) return alert('তারিখ নির্বাচন করুন!');
+        
+        // This single line saves data under class key, pushing it to all students instantly
+        db.diary[key] = text; 
         syncStorage();
-        alert('উক্ত শ্রেণীর ডায়েরি সফলভাবে সংরক্ষণ করা হয়েছে!');
+        alert(`সফল হয়েছে! এক চাপে ${cls} শ্রেণীর সকল শিক্ষার্থীর ডায়েরিতে পড়া আপডেট হয়ে গেছে।`);
         viewDiaryData();
     }
 
-    // --- 2. ATTENDANCE SYSTEM ---
+    // --- DEDICATED ATTENDANCE SYSTEM ---
     function loadAttendanceStudents() {
         if(session.role === 'student') return;
         
@@ -538,11 +555,11 @@
         container.classList.remove('hidden');
         document.getElementById('att-students-list').innerHTML = '';
         
-        let html = `<h4>আপনার হাজিরার বিবরণী</h4><table><tr><th>তারিখ</th><th>অবস্থা</th></tr>`;
+        let html = `<h4>আপনার হাজিরার খতিয়ান ও রেকর্ড</h4><table><tr><th>তারিখ</th><th>হাজিরা অবস্থা</th></tr>`;
         let count = 0;
 
         Object.keys(db.attendance).forEach(key => {
-            let parts = key.split('_'); // [date, class]
+            let parts = key.split('_'); 
             if(parts[1] === session.class && db.attendance[key][session.id]) {
                 count++;
                 html += `<tr><td>${parts[0]}</td><td><strong>${db.attendance[key][session.id]}</strong></td></tr>`;
@@ -550,15 +567,15 @@
         });
 
         html += `</table>`;
-        container.innerHTML = count > 0 ? html : "<p>এখনো কোনো হাজিরার রেকর্ড আপলোড হয়নি।</p>";
+        container.innerHTML = count > 0 ? html : "<p>এখনো কোনো হাজিরার রেকর্ড ডাটাবেজে যুক্ত হয়নি।</p>";
     }
 
-    // --- 3. FEES & PAYMENTS ---
+    // --- FEES SYSTEM ---
     function populateFeesStudentDropdown() {
         let select = document.getElementById('fees-student-id');
         select.innerHTML = '';
         db.students.forEach(s => {
-            select.innerHTML += `<option value="${s.id}">${s.name} [শ্রেণী: ${s.class}, আইডি: ${s.id}]</option>`;
+            select.innerHTML += `<option value="${s.id}">${s.name} [শ্রেণী: ${s.class}, রোল: ${s.id}]</option>`;
         });
     }
 
@@ -571,17 +588,11 @@
         let s = db.students.find(std => std.id === studentId);
 
         db.fees.unshift({
-            id: Date.now(),
-            studentId: s.id,
-            studentName: s.name,
-            class: s.class,
-            purpose,
-            amount,
-            date: new Date().toLocaleDateString('bn-BD')
+            id: Date.now(), studentId: s.id, studentName: s.name, class: s.class, purpose, amount, date: new Date().toLocaleDateString('bn-BD')
         });
 
         syncStorage();
-        alert('ফি এর রশিদ সফলভাবে তৈরি হয়েছে!');
+        alert('ফি সংগ্রহ রশিদ সফলভাবে ডাটাবেজে সংরক্ষিত হয়েছে!');
         document.getElementById('fees-purpose').value = '';
         document.getElementById('fees-amount').value = '';
         renderFeesLog();
@@ -594,7 +605,7 @@
         let data = (session.role === 'student') ? db.fees.filter(f => f.studentId === session.id && f.class === session.class) : db.fees;
         
         if(data.length === 0) {
-            list.innerHTML = '<li>কোনো ট্রানজেকশন ডাটা পাওয়া যায়নি।</li>';
+            list.innerHTML = '<li>কোনো লেনদেনের রেকর্ড পাওয়া যায়নি।</li>';
             return;
         }
 
@@ -603,36 +614,41 @@
                 <div>
                     <small style="color:green; font-weight:bold;">${f.date} - ${f.class} শ্রেণী</small>
                     <p><strong>${f.studentName}</strong> (আইডি: ${f.studentId})</p>
-                    <span style="font-size:12px; color:#555;">বিবরণ: ${f.purpose}</span>
+                    <span style="font-size:12px; color:#555;">ফি বিবরণী: ${f.purpose}</span>
                 </div>
                 <div style="font-weight:bold; color:var(--primary-color);">${f.amount}/- ৳</div>
             </li>`;
         });
     }
 
-    // --- 4. SUPER ADMIN ACTIONS (POST NOTICE, PROFILE EDIT, STUDENT ENTRIES) ---
+    // --- SUPER ADMIN CORE CONTROLS ---
     function updateProfile() {
         db.profile.name = document.getElementById('cfg-name').value.trim();
         db.profile.address = document.getElementById('cfg-address').value.trim();
         db.profile.logo = document.getElementById('cfg-logo').value.trim() || "fa-solid fa-mosque";
         syncStorage();
         applyProfileDOM();
-        alert('মাদরাসার প্রোফাইল সফলভাবে আপডেট হয়েছে!');
+        alert('মাদরাসার নাম ও প্রোফাইল ডাটাবেজে সফলভাবে এডিট হয়েছে!');
     }
 
     function addStudent() {
         let cls = document.getElementById('new-std-class').value;
         let name = document.getElementById('new-std-name').value.trim();
         let id = document.getElementById('new-std-id').value.trim();
+        let father = document.getElementById('new-std-father').value.trim();
+        let phone = document.getElementById('new-std-phone').value.trim();
 
-        if(!name || !id) return alert('নাম এবং রোল প্রদান করুন!');
-        if(db.students.some(s => s.id === id && s.class === cls)) return alert('এই শ্রেণীতে উক্ত আইডিটি অলরেডি এন্ট্রি আছে!');
+        if(!name || !id || !father || !phone) return alert('অনুগ্রহ করে শিক্ষার্থীর সম্পূর্ণ তথ্য প্রদান করুন!');
+        if(db.students.some(s => s.id === id && s.class === cls)) return alert('উক্ত শ্রেণীতে এই রোল নম্বরটি অলরেডি রয়েছে!');
 
-        db.students.push({ name, id, class: cls });
+        db.students.push({ name, id, class: cls, father, phone });
         syncStorage();
-        alert('নতুন শিক্ষার্থী সফলভাবে এন্ট্রি করা হয়েছে!');
+        alert(`সফল হয়েছে! সম্পূর্ণ তথ্য সহ শিক্ষার্থীকে ${cls} শ্রেণীতে অন্তর্ভুক্ত করা হয়েছে।`);
+        
         document.getElementById('new-std-name').value = '';
         document.getElementById('new-std-id').value = '';
+        document.getElementById('new-std-father').value = '';
+        document.getElementById('new-std-phone').value = '';
         
         if(session.role === 'admin') {
             populateFeesStudentDropdown();
@@ -645,35 +661,30 @@
         let id = document.getElementById('new-tch-id').value.trim();
         let pass = document.getElementById('new-tch-pass').value.trim();
 
-        if(!name || !id || !pass) return alert('শিক্ষকের সব তথ্য পূরণ করুন!');
-        if(db.teachers.some(t => t.id === id)) return alert('এই শিক্ষক আইডিটি ইতোমধ্যে ব্যবহৃত হয়েছে!');
+        if(!name || !id || !pass) return alert('শিক্ষকের সব তথ্য দেওয়া বাধ্যতামূলক!');
+        if(db.teachers.some(t => t.id === id)) return alert('এই আইডিটি দিয়ে অলরেডি একজন শিক্ষক আছেন!');
 
         db.teachers.push({ name, id, pass });
         syncStorage();
-        alert('নতুন শিক্ষক প্যানেলে যুক্ত হয়েছেন!');
+        alert('নতুন শিক্ষক প্যানেল সফলভাবে তৈরি হয়েছে!');
         document.getElementById('new-tch-name').value = '';
         document.getElementById('new-tch-id').value = '';
     }
 
     function saveNotice() {
         let text = document.getElementById('notice-input-text').value.trim();
-        if(!text) return alert('নোটিশ খালি রাখা যাবে না!');
+        if(!text) return alert('নোটিশের ঘরটি খালি!');
         
-        db.notices.unshift({
-            id: Date.now(),
-            text,
-            date: new Date().toLocaleDateString('bn-BD')
-        });
-
+        db.notices.unshift({ id: Date.now(), text, date: new Date().toLocaleDateString('bn-BD') });
         syncStorage();
         document.getElementById('notice-input-text').value = '';
         applyProfileDOM();
         renderPublicNotices();
-        alert('নতুন নোটিশ জারি করা হয়েছে!');
+        alert('অফিশিয়াল নোটিশবোর্ডে নোটিশটি লাইভ করা হয়েছে!');
     }
 
     function deleteNotice(id) {
-        if(confirm('আপনি কি নিশ্চিতভাবে এই নোটিশটি মুছে ফেলতে চান?')) {
+        if(confirm('আপনি কি এই নোটিশটি চিরতরে মুছে ফেলতে চান?')) {
             db.notices = db.notices.filter(n => n.id !== id);
             syncStorage();
             applyProfileDOM();
@@ -713,14 +724,17 @@
 
         filtered.forEach(s => {
             list.innerHTML += `<li>
-                <span><strong>${s.name}</strong> (আইডি/রোল: ${s.id})</span>
+                <div>
+                    <strong>${s.name}</strong> (রোল: ${s.id})
+                    <p style="font-size:12px; color:#666;">পিতা: ${s.father} | মোবা: ${s.phone}</p>
+                </div>
                 <button class="btn btn-danger btn-sm" onclick="removeStudent('${s.id}','${s.class}')"><i class="fa-solid fa-user-minus"></i> রিমুভ</button>
             </li>`;
         });
     }
 
     function removeStudent(id, cls) {
-        if(confirm(`আপনি কি নিশ্চিতভাবে ${cls} শ্রেণীর আইডি: ${id} শিক্ষার্থীকে সিস্টেম থেকে রিমুভ করতে চান?`)) {
+        if(confirm(`আপনি কি নিশ্চিতভাবে ${cls} শ্রেণীর রোল নম্বর: ${id} শিক্ষার্থীকে সিস্টেম থেকে রিমুভ করতে চান?`)) {
             db.students = db.students.filter(s => !(s.id === id && s.class === cls));
             syncStorage();
             renderManageStudents();
