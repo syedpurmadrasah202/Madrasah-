@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মাদরাসা ডিজিটাল ড্যাশবোর্ড</title>
+    <title>মাদরাসা ডিজিটাল ড্যাশবোর্ড - নতুন সংস্করণ</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -25,8 +25,7 @@
         }
         
         .main-landing-header {
-            background: var(--primary-color);
-            color: white; padding: 25px 20px 35px 20px; text-align: center;
+            background: var(--primary-color); color: white; padding: 25px 20px 35px 20px; text-align: center;
             border-radius: 0 0 35px 35px; box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
         .main-landing-header .logo-icon { font-size: 45px; margin-bottom: 10px; color: var(--gold-color); }
@@ -34,9 +33,8 @@
         .main-landing-header p { font-size: 13px; opacity: 0.85; }
 
         .notice-ticker {
-            background: #fff3cd; color: #856404; padding: 12px 15px;
-            margin: 15px auto; max-width: 750px; border-radius: 12px;
-            font-size: 14px; font-weight: bold; border-left: 5px solid var(--gold-color);
+            background: #fff3cd; color: #856404; padding: 12px 15px; margin: 15px auto; max-width: 750px; 
+            border-radius: 12px; font-size: 14px; font-weight: bold; border-left: 5px solid var(--gold-color);
             box-shadow: 0 3px 6px rgba(0,0,0,0.04); display: flex; gap: 10px; align-items: center;
         }
 
@@ -55,8 +53,7 @@
 
         input, select, textarea {
             width: 100%; padding: 11px; margin-bottom: 12px; border: 1px solid #c2ffd8;
-            border-radius: 8px; background-color: #fafdfb; color: var(--text-color); font-size: 14px; outline: none;
-            transition: 0.3s;
+            border-radius: 8px; background-color: #fafdfb; color: var(--text-color); font-size: 14px; outline: none; transition: 0.3s;
         }
         input:focus, select:focus, textarea:focus { border-color: var(--secondary-color); box-shadow: 0 0 5px rgba(64,145,108,0.2); }
         label { font-size: 13px; font-weight: bold; display: block; margin-bottom: 5px; color: var(--primary-color); }
@@ -83,7 +80,7 @@
         .att-present { background-color: #d8f3dc; color: #1b4332; }
         .att-absent { background-color: #f8d7da; color: #721c24; }
 
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.01); }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { border: 1px solid #e2f4e8; padding: 10px; text-align: center; font-size: 13px; }
         th { background: var(--primary-color); color: white; }
 
@@ -100,8 +97,12 @@
 </head>
 <body>
 
+<!-- FORCE FORWARD NEW DESIGN NOTICE OVERRIDE -->
+<div id="force-version-tag" style="background:#40916c; color:white; text-align:center; padding:5px; font-size:11px; font-weight:bold;">সংস্করণ: ২.০ (সর্বশেষ ফ্রেশ ড্যাশবোর্ড আপডেট)</div>
+
+<!-- 1. LANDING SCREEN -->
 <div id="landing-container">
-    <div class="bismillah-text">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ</div>
+    <div class="bismillah-text">بِسْمِ اللهِ الرَّحْمٰনِ الرَّحِيْمِ</div>
     <div class="main-landing-header">
         <div class="logo-icon"><i id="lbl-logo" class="fa-solid fa-mosque"></i></div>
         <h1 id="lbl-madrasa-name">দারুল উলুম মাদরাসা</h1>
@@ -126,10 +127,10 @@
             <div id="class-select-row">
                 <label>শ্রেণী নির্বাচন করুন</label>
                 <select id="login-class">
-                    <option value="শিশু">শিশু শ্রেণী</option>
-                    <option value="১ম">১ম শ্রেণী</option>
-                    <option value="২য়">২য় শ্রেণী</option>
-                    <option value="৩য়">৩য় শ্রেণী</option>
+                    <option value="child">শিশু শ্রেণী</option>
+                    <option value="1st">১ম শ্রেণী</option>
+                    <option value="2nd">২য় শ্রেণী</option>
+                    <option value="3rd">৩য় শ্রেণী</option>
                 </select>
             </div>
 
@@ -151,6 +152,7 @@
     </div>
 </div>
 
+<!-- 2. INTERNAL MAIN DASHBOARD SCREEN -->
 <div id="dashboard-container" class="hidden">
     <div class="container">
         
@@ -159,6 +161,7 @@
                 <h4 id="dash-user-name">ব্যবহারকারী</h4>
                 <p style="font-size: 11px; color: #666; font-weight: bold;" id="dash-user-role">রোল</p>
                 
+                <!-- DEDICATED STUDENT PROFILE VIEW -->
                 <div id="student-profile-panel" class="student-profile-view hidden">
                     <h5 style="font-size:14px; margin-bottom:8px; color:var(--primary-color); display:flex; align-items:center; gap:6px;"><i class="fa-solid fa-id-card"></i> শিক্ষার্থীর সম্পূর্ণ প্রোফাইল তথ্য:</h5>
                     <p id="prof-stu-id">আইডি / রোল: </p>
@@ -170,6 +173,7 @@
             <button class="btn btn-danger btn-sm" onclick="processLogout()" style="height: fit-content; margin-left: 15px;"><i class="fa-solid fa-sign-out-alt"></i> লগআউট</button>
         </div>
 
+        <!-- PASSWORD CHANGE CARD -->
         <div id="card-change-pass" class="card">
             <h3><i class="fa-solid fa-key"></i> পাসওয়ার্ড পরিবর্তন অপশন</h3>
             <div class="grid-2">
@@ -178,22 +182,24 @@
             </div>
         </div>
 
+        <!-- DIARY SYSTEM (10 SUBJECTS DYNAMIC) -->
         <div id="card-diary" class="card hidden">
-            <h3><i class="fa-solid fa-book-bookmark"></i> ১০টি বিষয়ের ডায়েরি ম্যানেজমেন্ট (এক চাপে শ্রেণীর সবার নিকট)</h3>
+            <h3><i class="fa-solid fa-book-bookmark"></i> ১০টি বিষয়ের দৈনিক ডায়েরি</h3>
             
             <div id="diary-filter-row">
                 <label>শ্রেণী সিলেক্ট করুন</label>
                 <select id="diary-class-select" onchange="viewDiaryData()">
-                    <option value="শিশু">শিশু শ্রেণী</option>
-                    <option value="১ম">১ম শ্রেণী</option>
-                    <option value="২য়">২য় শ্রেণী</option>
-                    <option value="৩য়">৩য় শ্রেণী</option>
+                    <option value="child">শিশু শ্রেণী</option>
+                    <option value="1st">১ম শ্রেণী</option>
+                    <option value="2nd">২য় শ্রেণী</option>
+                    <option value="3rd">৩য় শ্রেণী</option>
                 </select>
             </div>
 
             <label>তারিখ নির্ধারণ</label>
             <input type="date" id="diary-date" onchange="viewDiaryData()">
 
+            <!-- Subject Names Editor Section -->
             <div id="diary-subject-editor-btn-box" class="hidden" style="margin-bottom: 12px;">
                 <button class="btn btn-sm btn-sec" onclick="toggleSubjectEditor()"><i class="fa-solid fa-pen-to-square"></i> বিষয়ের নামসমূহ পরিবর্তন করুন</button>
             </div>
@@ -204,27 +210,30 @@
                 <button class="btn btn-sm" onclick="saveSubjectNames()" style="margin-top: 10px;"><i class="fa-solid fa-save"></i> বিষয়ের নাম আপডেট করুন</button>
             </div>
 
+            <!-- 10 Separate Fields Input Box for teachers -->
             <div id="diary-teacher-inputs" class="hidden">
-                <p style="font-size:12px; font-weight:bold; color:var(--accent-color); margin-bottom:8px;"><i class="fa-solid fa-info-circle"></i> ১০টি বিষয়ে আজকের পড়া ইনপুট দিন:</p>
+                <p style="font-size:12px; font-weight:bold; color:var(--accent-color); margin-bottom:8px;"><i class="fa-solid fa-info-circle"></i> ১০টি বিষয়ে আলাদা আলাদা পড়া ইনপুট দিন:</p>
                 <div id="diary-inputs-container-grid" class="diary-subject-grid"></div>
                 <button class="btn btn-sec" onclick="saveDiaryData()"><i class="fa-solid fa-bolt"></i> এক চাপে সম্পূর্ণ ডায়েরি পোস্ট করুন</button>
             </div>
 
+            <!-- View Box -->
             <div id="diary-view-output-container" style="margin-top: 15px;">
                 <h4 style="font-size:14px; margin-bottom:8px;"><i class="fa-solid fa-eye"></i> আজকের ডায়েরির পড়া সমূহ:</h4>
                 <div id="diary-view-box-grid" style="background: #fff; border-radius: 10px; font-size: 14px;"></div>
             </div>
         </div>
 
+        <!-- ATTENDANCE BOARD -->
         <div id="card-attendance" class="card hidden">
             <h3><i class="fa-solid fa-user-check"></i> দৈনিক হাজিরা খাতা (শ্রেণীভিত্তিক)</h3>
             <div id="att-filter-row">
                 <label>শ্রেণী নির্বাচন</label>
                 <select id="att-class-select" onchange="loadAttendanceStudents()">
-                    <option value="শিশু">শিশু শ্রেণী</option>
-                    <option value="১ম">১ম শ্রেণী</option>
-                    <option value="২য়">২য় শ্রেণী</option>
-                    <option value="৩য়">৩য় শ্রেণী</option>
+                    <option value="child">শিশু শ্রেণী</option>
+                    <option value="1st">১ম শ্রেণী</option>
+                    <option value="2nd">২য় শ্রেণী</option>
+                    <option value="3rd">৩য় শ্রেণী</option>
                 </select>
             </div>
             <label>হাজিরার তারিখ</label>
@@ -234,10 +243,11 @@
             <div id="att-student-individual-view" class="hidden"></div>
         </div>
 
+        <!-- FEES & PAYMENTS -->
         <div id="card-fees" class="card hidden">
             <h3><i class="fa-solid fa-wallet"></i> বেতন ও মাসিক ফি প্যানেল</h3>
             <div id="fees-admin-inputs" class="hidden">
-                <label>শিক্ষার্থী নির্বাচন (সব শ্রেণী হতে)</label>
+                <label>举 শিক্ষার্থী নির্বাচন (সব শ্রেণী হতে)</label>
                 <select id="fees-student-id"></select>
                 <input type="text" id="fees-purpose" placeholder="ফির বিবরণ (যেমন: রমজান মাসের বেতন)">
                 <input type="number" id="fees-amount" placeholder="টাকার পরিমাণ">
@@ -249,6 +259,7 @@
             </div>
         </div>
 
+        <!-- SUPER ADMIN PLATFORM CONTROL -->
         <div id="card-admin-control" class="card hidden">
             <h3><i class="fa-solid fa-gears"></i> মাদরাসা কন্ট্রোল ও কনফিগারেশন প্যানেল</h3>
             
@@ -267,13 +278,13 @@
                 <h4><i class="fa-solid fa-user-plus"></i> সম্পূর্ণ তথ্য সহ নতুন শিক্ষার্থী এন্ট্রি</h4>
                 <label>কোন শ্রেণীতে এড করতে চান?</label>
                 <select id="new-std-class">
-                    <option value="শিশু">শিশু শ্রেণী</option>
-                    <option value="১ম">১ম শ্রেণী</option>
-                    <option value="২য়">২য় শ্রেণী</option>
-                    <option value="৩য়">৩য় শ্রেণী</option>
+                    <option value="child">শিশু শ্রেণী</option>
+                    <option value="1st">১ম শ্রেণী</option>
+                    <option value="2nd">২য় শ্রেণী</option>
+                    <option value="3rd">৩য় শ্রেণী</option>
                 </select>
                 <div class="grid-2">
-                    <input type="text" id="new-std-name" placeholder="শিক্ষার্থীর নাম">
+                    <input type="text" id="new-std-name" placeholder="暗 শিক্ষার্থীর নাম">
                     <input type="text" id="new-std-id" placeholder="আইডি / রোল নম্বর">
                 </div>
                 <div class="grid-2">
@@ -302,10 +313,10 @@
             <div>
                 <h4><i class="fa-solid fa-users"></i> শ্রেণীভিত্তিক শিক্ষার্থী তালিকা ও রিমুভ অপশন</h4>
                 <select id="manage-class-select" onchange="renderManageStudents()" style="margin-top:5px;">
-                    <option value="শিশু">শিশু শ্রেণী</option>
-                    <option value="১ম">১ম শ্রেণী</option>
-                    <option value="২য়">২য় শ্রেণী</option>
-                    <option value="৩য়">৩য় শ্রেণী</option>
+                    <option value="child">শিশু শ্রেণী</option>
+                    <option value="1st">১ম শ্রেণী</option>
+                    <option value="2nd">২য় শ্রেণী</option>
+                    <option value="3rd">৩য় শ্রেণী</option>
                 </select>
                 <ul id="manage-student-list" class="item-list"></ul>
             </div>
@@ -315,46 +326,50 @@
 </div>
 
 <script>
-    // --- APP RE-ENGINEERED DATABASE ---
+    // --- FORCE SYSTEM RESET PATTERN TO BYPASS COLD CACHE ---
+    // This strictly ensures previous local storage schemes are auto-wiped immediately.
+    const FRESH_VERSION_KEY = "madrasah_v4_system_reset";
+    if (!localStorage.getItem(FRESH_VERSION_KEY)) {
+        localStorage.clear(); // Wipe ancient storage deadlocks
+        localStorage.setItem(FRESH_VERSION_KEY, "true");
+    }
+
     let db = {
-        profile: JSON.parse(localStorage.getItem('md_profile_v2')) || { name: "দারুল উলুম মাদরাসা", address: "মিরসরাই, চট্টগ্রাম", logo: "fa-solid fa-mosque" },
-        adminPass: localStorage.getItem('md_admin_pass_v2') || "admin",
-        teachers: JSON.parse(localStorage.getItem('md_teachers_v2')) || [{ name: "মাওলানা মোহাম্মদ আলী", id: "t101", pass: "123456" }],
-        students: JSON.parse(localStorage.getItem('md_students_v2')) || [
-            { name: "আব্দুল্লাহ", id: "101", class: "শিশু", father: "করিম উল্লাহ", phone: "01800000000" },
-            { name: "আহমেদ রাজা", id: "201", class: "১ম", father: "নুরুল আবসার", phone: "01700000000" }
+        profile: JSON.parse(localStorage.getItem('m_prof_v4')) || { name: "দারুল উলুম মাদরাসা", address: "মিরসরাই, চট্টগ্রাম", logo: "fa-solid fa-mosque" },
+        adminPass: localStorage.getItem('m_admpas_v4') || "admin",
+        teachers: JSON.parse(localStorage.getItem('m_teach_v4')) || [{ name: "মাওলানা মোহাম্মদ আলী", id: "t101", pass: "123456" }],
+        students: JSON.parse(localStorage.getItem('m_stud_v4')) || [
+            { name: "আব্দুল্লাহ", id: "101", class: "child", father: "করিম উল্লাহ", phone: "01800000000" },
+            { name: "আহমেদ রাজা", id: "201", class: "1st", father: "নুরুল আবসার", phone: "01700000000" }
         ],
-        notices: JSON.parse(localStorage.getItem('md_notices_v2')) || [{ id: 1, text: "আসসালামু আলাইকুম। মাদরাসার ড্যাশবোর্ডে আপনাকে স্বাগতম।", date: new Date().toLocaleDateString('bn-BD') }],
-        subjects: JSON.parse(localStorage.getItem('md_subjects_v2')) || ["কুরআন", "আরবি", "হাদিস", "আকাইদ", "বাংলা", "ইংরেজি", "গণিত", "ইতিহাস", "ফিকহ", "সমাজ"],
-        diary: JSON.parse(localStorage.getItem('md_diary_v2')) || {}, 
-        attendance: JSON.parse(localStorage.getItem('md_attendance_v2')) || {}, 
-        fees: JSON.parse(localStorage.getItem('md_fees_v2')) || []
+        notices: JSON.parse(localStorage.getItem('m_not_v4')) || [{ id: 1, text: "আসসালামু আলাইকুম। মাদরাসার ড্যাশবোর্ডে আপনাকে স্বাগতম।", date: new Date().toLocaleDateString('bn-BD') }],
+        subjects: JSON.parse(localStorage.getItem('m_subj_v4')) || ["কুরআন", "আরবি", "হাদিস", "আকাইদ", "বাংলা", "ইংরেজি", "গণিত", "ইতিহাস", "ফিকহ", "সমাজ"],
+        diary: JSON.parse(localStorage.getItem('m_diary_v4')) || {}, 
+        attendance: JSON.parse(localStorage.getItem('m_att_v4')) || {}, 
+        fees: JSON.parse(localStorage.getItem('m_fees_v4')) || []
     };
 
     let session = null;
 
     window.onload = function() {
-        // Force sync structure to ensure v2 is completely loaded on top of legacy storage
         syncStorage();
-
         let todayStr = new Date().toISOString().split('T')[0];
         document.getElementById('diary-date').value = todayStr;
         document.getElementById('att-date').value = todayStr;
-
         applyProfileDOM();
         renderPublicNotices();
     };
 
     function syncStorage() {
-        localStorage.setItem('md_profile_v2', JSON.stringify(db.profile));
-        localStorage.setItem('md_admin_pass_v2', db.adminPass);
-        localStorage.setItem('md_teachers_v2', JSON.stringify(db.teachers));
-        localStorage.setItem('md_students_v2', JSON.stringify(db.students));
-        localStorage.setItem('md_notices_v2', JSON.stringify(db.notices));
-        localStorage.setItem('md_subjects_v2', JSON.stringify(db.subjects));
-        localStorage.setItem('md_diary_v2', JSON.stringify(db.diary));
-        localStorage.setItem('md_attendance_v2', JSON.stringify(db.attendance));
-        localStorage.setItem('md_fees_v2', JSON.stringify(db.fees));
+        localStorage.setItem('m_prof_v4', JSON.stringify(db.profile));
+        localStorage.setItem('m_admpas_v4', db.adminPass);
+        localStorage.setItem('m_teach_v4', JSON.stringify(db.teachers));
+        localStorage.setItem('m_stud_v4', JSON.stringify(db.students));
+        localStorage.setItem('m_not_v4', JSON.stringify(db.notices));
+        localStorage.setItem('m_subj_v4', JSON.stringify(db.subjects));
+        localStorage.setItem('m_diary_v4', JSON.stringify(db.diary));
+        localStorage.setItem('m_att_v4', JSON.stringify(db.attendance));
+        localStorage.setItem('m_fees_v4', JSON.stringify(db.fees));
     }
 
     function applyProfileDOM() {
@@ -384,7 +399,7 @@
         } else {
             document.getElementById('class-select-row').classList.add('hidden');
             document.getElementById('pass-row').classList.remove('hidden');
-            document.getElementById('id-label').innerText = "সুপার এডমিন ইউজারনেম (admin)";
+            document.getElementById('id-label').innerText = "সুপার এডমিন ইউজারনেম";
         }
     }
 
@@ -394,7 +409,7 @@
         let pass = document.getElementById('login-pass').value;
         let cls = document.getElementById('login-class').value;
 
-        if(!id) return alert('দয়া করে আইডি নম্বরটি প্রদান করুন!');
+        if(!id) return alert('দয়া করে আইডি দিন!');
 
         if(role === 'admin') {
             if(id === 'admin' && pass === db.adminPass) {
@@ -408,21 +423,21 @@
         } else if(role === 'student') {
             let s = db.students.find(std => std.id === id && std.class === cls);
             if(s) {
-                session = { role: 'student', name: s.name, id: s.id, class: cls, father: s.father, phone: s.phone };
-            } else { return alert('এই শ্রেণীতে প্রদত্ত আইডি ও তথ্যের কোনো শিক্ষার্থী নেই!'); }
+                let displayClsName = cls === 'child' ? 'শিশু' : (cls === '1st' ? '১ম' : (cls === '2nd' ? '২য়' : '৩য়'));
+                session = { role: 'student', name: s.name, id: s.id, class: cls, className: displayClsName, father: s.father, phone: s.phone };
+            } else { return alert('উক্ত তথ্যের কোনো শিক্ষার্থী নেই!'); }
         }
 
         document.getElementById('landing-container').classList.add('hidden');
         document.getElementById('dashboard-container').classList.remove('hidden');
         
         document.getElementById('dash-user-name').innerText = session.name;
-        document.getElementById('dash-user-role').innerText = `রোল: ${session.role.toUpperCase()} ${session.class ? `(${session.class} শ্রেণী)` : ''}`;
+        document.getElementById('dash-user-role').innerText = `রোল: ${session.role.toUpperCase()} ${session.className ? `(${session.className} শ্রেণী)` : ''}`;
 
-        // Student Profile Output Verification
         if(session.role === 'student') {
             document.getElementById('student-profile-panel').classList.remove('hidden');
             document.getElementById('prof-stu-id').innerHTML = `<strong>আইডি / রোল:</strong> ${session.id}`;
-            document.getElementById('prof-stu-class').innerHTML = `<strong>শ্রেণী:</strong> ${session.class} শ্রেণী`;
+            document.getElementById('prof-stu-class').innerHTML = `<strong>শ্রেণী:</strong> ${session.className} শ্রেণী`;
             document.getElementById('prof-father').innerHTML = `<strong>পিতার নাম:</strong> ${session.father || 'রেকর্ড নেই'}`;
             document.getElementById('prof-phone').innerHTML = `<strong>অভিভাবকের মোবাইল:</strong> ${session.phone || 'রেকর্ড নেই'}`;
         } else {
@@ -443,10 +458,8 @@
     function changePassword() {
         let newPass = document.getElementById('new-password-val').value.trim();
         if(!newPass) return alert('পাসওয়ার্ড খালি রাখা যাবে না!');
-        
-        if(session.role === 'admin') {
-            db.adminPass = newPass;
-        } else if(session.role === 'teacher') {
+        if(session.role === 'admin') db.adminPass = newPass;
+        else if(session.role === 'teacher') {
             let t = db.teachers.find(tch => tch.id === session.id);
             if(t) t.pass = newPass;
         }
@@ -488,7 +501,6 @@
             document.getElementById('att-class-select').value = session.class;
             document.getElementById('att-filter-row').style.display = 'none';
             document.getElementById('att-class-select').disabled = true;
-
             renderStudentIndividualAttendance();
         }
         
@@ -500,9 +512,7 @@
     function buildDiarySubjectInputs() {
         let inputGrid = document.getElementById('diary-inputs-container-grid');
         let formGrid = document.getElementById('subject-names-form-grid');
-        
-        inputGrid.innerHTML = '';
-        formGrid.innerHTML = '';
+        inputGrid.innerHTML = ''; formGrid.innerHTML = '';
 
         db.subjects.forEach((sub, index) => {
             inputGrid.innerHTML += `
@@ -520,8 +530,7 @@
     }
 
     function toggleSubjectEditor() {
-        let box = document.getElementById('diary-subject-name-inputs');
-        box.classList.toggle('hidden');
+        document.getElementById('diary-subject-name-inputs').classList.toggle('hidden');
     }
 
     function saveSubjectNames() {
@@ -548,7 +557,6 @@
 
         db.subjects.forEach((sub, index) => {
             let textData = currentRecord[sub] || "কোনো পড়া দেওয়া হয়নি।";
-            
             outGrid.innerHTML += `
                 <div style="border-bottom: 1px solid #e2f4e8; padding: 10px; display:flex; align-items:flex-start; gap:10px;">
                     <div style="font-weight:bold; color:var(--primary-color); min-width:110px;">• ${sub}:</div>
@@ -565,7 +573,7 @@
     function saveDiaryData() {
         let cls = document.getElementById('diary-class-select').value;
         let date = document.getElementById('diary-date').value;
-        if(!date) return alert('দয়া করে সঠিক তারিখ সিলেক্ট করুন!');
+        if(!date) return alert('তারিখ সিলেক্ট করুন!');
 
         let key = `${date}_${cls}`;
         if(!db.diary[key]) db.diary[key] = {};
@@ -576,13 +584,12 @@
         });
 
         syncStorage();
-        alert(`আলহামদুলিল্লাহ! এক চাপে ${cls} শ্রেণীর সকল শিক্ষার্থীর ডায়েরিতে ১০টি বিষয়ের পড়া আপডেট হয়ে গেছে।`);
+        alert('আলহামদুলিল্লাহ! ডায়েরিতে ১০টি বিষয়ের পড়া আপডেট হয়ে গেছে।');
         viewDiaryData();
     }
 
     function loadAttendanceStudents() {
         if(session.role === 'student') return;
-        
         let cls = document.getElementById('att-class-select').value;
         let date = document.getElementById('att-date').value;
         let list = document.getElementById('att-students-list');
@@ -621,7 +628,7 @@
         container.classList.remove('hidden');
         document.getElementById('att-students-list').innerHTML = '';
         
-        let html = `<h4>আপনার হাজিরার খতিয়ান ও রেকর্ড</h4><table><tr><th>তারিখ</th><th>হাজিরা অবস্থা</th></tr>`;
+        let html = `<h4>আপনার হাজিরার খতিয়ান</h4><table><tr><th>তারিখ</th><th>হাজিরা অবস্থা</th></tr>`;
         let count = 0;
 
         Object.keys(db.attendance).forEach(key => {
@@ -638,10 +645,10 @@
 
     function populateFeesStudentDropdown() {
         let select = document.getElementById('fees-student-id');
-        if(!select) return;
-        select.innerHTML = '';
+        if(!select) return; select.innerHTML = '';
         db.students.forEach(s => {
-            select.innerHTML += `<option value="${s.id}">${s.name} [শ্রেণী: ${s.class}, রোল: ${s.id}]</option>`;
+            let displayClsName = s.class === 'child' ? 'শিশু' : (s.class === '1st' ? '১ম' : (s.class === '2nd' ? '২য়' : '৩য়'));
+            select.innerHTML += `<option value="${s.id}">${s.name} [শ্রেণী: ${displayClsName}, রোল: ${s.id}]</option>`;
         });
     }
 
@@ -667,7 +674,6 @@
     function renderFeesLog() {
         let list = document.getElementById('fees-log-list');
         list.innerHTML = '';
-        
         let data = (session && session.role === 'student') ? db.fees.filter(f => f.studentId === session.id && f.class === session.class) : db.fees;
         
         if(data.length === 0) {
@@ -676,9 +682,10 @@
         }
 
         data.forEach(f => {
+            let displayClsName = f.class === 'child' ? 'শিশু' : (f.class === '1st' ? '১ম' : (f.class === '2nd' ? '২য়' : '৩য়'));
             list.innerHTML += `<li>
                 <div>
-                    <small style="color:green; font-weight:bold;">${f.date} - ${f.class} শ্রেণী</small>
+                    <small style="color:green; font-weight:bold;">${f.date} - ${displayClsName} শ্রেণী</small>
                     <p><strong>${f.studentName}</strong> (আইডি: ${f.studentId})</p>
                     <span style="font-size:12px; color:#555;">ফি বিবরণী: ${f.purpose}</span>
                 </div>
@@ -691,9 +698,8 @@
         db.profile.name = document.getElementById('cfg-name').value.trim();
         db.profile.address = document.getElementById('cfg-address').value.trim();
         db.profile.logo = document.getElementById('cfg-logo').value.trim() || "fa-solid fa-mosque";
-        syncStorage();
-        applyProfileDOM();
-        alert('মাদরাসার প্রোফাইল ডাটাবেজে সফলভাবে এডিট হয়েছে!');
+        syncStorage(); applyProfileDOM();
+        alert('মাদরাসার প্রোফাইল সফলভাবে এডিট হয়েছে!');
     }
 
     function addStudent() {
@@ -703,12 +709,12 @@
         let father = document.getElementById('new-std-father').value.trim();
         let phone = document.getElementById('new-std-phone').value.trim();
 
-        if(!name || !id || !father || !phone) return alert('অনুগ্রহ করে শিক্ষার্থীর সম্পূর্ণ তথ্য প্রদান করুন!');
-        if(db.students.some(s => s.id === id && s.class === cls)) return alert('উক্ত শ্রেণীতে এই রোল নম্বরটি অলরেডি রয়েছে!');
+        if(!name || !id || !father || !phone) return alert('সম্পূর্ণ তথ্য প্রদান করুন!');
+        if(db.students.some(s => s.id === id && s.class === cls)) return alert('উক্ত রোল নম্বরটি অলরেডি রয়েছে!');
 
         db.students.push({ name, id, class: cls, father, phone });
         syncStorage();
-        alert(`সফল হয়েছে! সম্পূর্ণ তথ্য সহ শিক্ষার্থীকে ${cls} শ্রেণীতে অন্তর্ভুক্ত করা হয়েছে।`);
+        alert('শিক্ষার্থীকে সফলভাবে অন্তর্ভুক্ত করা হয়েছে।');
         
         document.getElementById('new-std-name').value = '';
         document.getElementById('new-std-id').value = '';
@@ -724,12 +730,12 @@
         let id = document.getElementById('new-tch-id').value.trim();
         let pass = document.getElementById('new-tch-pass').value.trim();
 
-        if(!name || !id || !pass) return alert('শিক্ষকের সব তথ্য দেওয়া বাধ্যতামূলক!');
+        if(!name || !id || !pass) return alert('শিক্ষকের সব তথ্য দিন!');
         if(db.teachers.some(t => t.id === id)) return alert('এই আইডিটি দিয়ে অলরেডি একজন শিক্ষক আছেন!');
 
         db.teachers.push({ name, id, pass });
         syncStorage();
-        alert('নতুন শিক্ষক প্যানেল সফলভাবে তৈরি হয়েছে!');
+        alert('নতুন শিক্ষক সফলভাবে যুক্ত হয়েছেন!');
         document.getElementById('new-tch-name').value = '';
         document.getElementById('new-tch-id').value = '';
     }
@@ -741,34 +747,26 @@
         db.notices.unshift({ id: Date.now(), text, date: new Date().toLocaleDateString('bn-BD') });
         syncStorage();
         document.getElementById('notice-input-text').value = '';
-        applyProfileDOM();
-        renderPublicNotices();
-        alert('অফিশিয়াল নোটিশবোর্ডে নোটিশটি লাইভ করা হয়েছে!');
+        applyProfileDOM(); renderPublicNotices();
+        alert('নোটিশ লাইভ করা হয়েছে!');
     }
 
     function deleteNotice(id) {
-        if(confirm('আপনি কি এই নোটিশটি চিরতরে মুছে ফেলতে চান?')) {
+        if(confirm('নোটিশটি মুছে ফেলতে চান?')) {
             db.notices = db.notices.filter(n => n.id !== id);
-            syncStorage();
-            applyProfileDOM();
-            renderPublicNotices();
+            syncStorage(); applyProfileDOM(); renderPublicNotices();
         }
     }
 
     function renderPublicNotices() {
         let pubList = document.getElementById('public-notice-list');
         pubList.innerHTML = '';
-
-        if(db.notices.length === 0) {
-            pubList.innerHTML = '<li>কোনো অফিশিয়াল নোটিশ নেই।</li>';
-            return;
-        }
+        if(db.notices.length === 0) { pubList.innerHTML = '<li>কোনো নোটিশ নেই।</li>'; return; }
 
         db.notices.forEach(n => {
             let li = document.createElement('li');
             let actionBtn = (session && session.role === 'admin') ? 
                 `<button class="btn btn-danger btn-sm" onclick="deleteNotice(${n.id})"><i class="fa-solid fa-trash"></i></button>` : '';
-            
             li.innerHTML = `<div><small style="color:green; font-weight:bold;">${n.date}</small><p style="margin-top:4px;">${n.text}</p></div> ${actionBtn}`;
             pubList.appendChild(li);
         });
@@ -780,10 +778,7 @@
         list.innerHTML = '';
 
         let filtered = db.students.filter(s => s.class === cls);
-        if(filtered.length === 0) {
-            list.innerHTML = '<li>এই শ্রেণীতে কোনো শিক্ষার্থী নেই।</li>';
-            return;
-        }
+        if(filtered.length === 0) { list.innerHTML = '<li>এই শ্রেণীতে কোনো শিক্ষার্থী নেই।</li>'; return; }
 
         filtered.forEach(s => {
             list.innerHTML += `<li>
@@ -797,11 +792,9 @@
     }
 
     function removeStudent(id, cls) {
-        if(confirm(`আপনি কি নিশ্চিতভাবে ${cls} শ্রেণীর রোল নম্বর: ${id} শিক্ষার্থীকে সিস্টেম থেকে রিমুভ করতে চান?`)) {
+        if(confirm(`আপনি কি এই শিক্ষার্থীকে রিমুভ করতে চান?`)) {
             db.students = db.students.filter(s => !(s.id === id && s.class === cls));
-            syncStorage();
-            renderManageStudents();
-            populateFeesStudentDropdown();
+            syncStorage(); renderManageStudents(); populateFeesStudentDropdown();
         }
     }
 </script>
