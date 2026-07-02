@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>মাদরাসা ড্যাশবোর্ড</title>
+    <title>মাদরাসা ডিজিটাল ড্যাশবোর্ড</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -15,64 +15,66 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { background-color: var(--bg-color); color: var(--text-color); padding-bottom: 80px; }
+        body { background-color: var(--bg-color); color: var(--text-color); padding-bottom: 30px; }
 
-        .header {
+        /* Welcome & Landing Header */
+        .main-landing-header {
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: white; padding: 35px 20px; text-align: center;
-            border-radius: 0 0 25px 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative;
+            color: white; padding: 40px 20px; text-align: center;
+            border-radius: 0 0 30px 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
-        .header h1 { font-size: 24px; margin-bottom: 5px; font-weight: bold; letter-spacing: 1px; }
-        .header p { font-size: 13px; opacity: 0.9; }
+        .main-landing-header .logo-icon { font-size: 50px; margin-bottom: 10px; color: #d8f3dc; }
+        .main-landing-header h1 { font-size: 26px; font-weight: bold; margin-bottom: 5px; }
+        .main-landing-header p { font-size: 14px; opacity: 0.9; }
 
         .notice-ticker {
-            background: #fff3cd; color: #856404; padding: 10px 15px;
-            margin: 15px auto; max-width: 600px; border-radius: 10px;
+            background: #fff3cd; color: #856404; padding: 12px 15px;
+            margin: 15px auto; max-width: 700px; border-radius: 10px;
             font-size: 14px; font-weight: bold; border-left: 5px solid #ffc107;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05); display: flex; gap: 10px; align-items: center;
         }
 
-        .container { padding: 15px; max-width: 600px; margin: 0 auto; }
+        .container { padding: 15px; max-width: 700px; margin: 0 auto; }
+        
         .card {
             background: white; border-radius: 15px; padding: 20px; margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02); border: 1px solid rgba(64, 145, 108, 0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03); border: 1px solid rgba(64, 145, 108, 0.1);
         }
         .card h3 {
             font-size: 16px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;
             color: var(--primary-color); border-bottom: 2px solid var(--bg-color); padding-bottom: 8px;
         }
 
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
         input, select, textarea {
-            width: 100%; padding: 12px; margin-bottom: 10px; border: 1px solid #c2ffd8;
-            border-radius: 8px; background-color: #fafdfb; color: var(--text-color); font-size: 15px; outline: none;
+            width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #c2ffd8;
+            border-radius: 8px; background-color: #fafdfb; color: var(--text-color); font-size: 14px; outline: none;
         }
+        label { font-size: 13px; font-weight: bold; display: block; margin-bottom: 4px; color: var(--primary-color); }
+        
         .btn {
             background-color: var(--primary-color); color: white; padding: 12px; border: none;
             border-radius: 8px; width: 100%; font-weight: bold; font-size: 15px; cursor: pointer; transition: 0.3s;
+            display: inline-flex; justify-content: center; align-items: center; gap: 8px;
         }
         .btn:hover { background-color: var(--accent-color); }
         .btn-danger { background-color: #d90429; }
-        .btn-sm { padding: 5px 10px; font-size: 12px; width: auto; margin-top: 0; }
+        .btn-sm { padding: 6px 12px; font-size: 12px; width: auto; margin-top: 0; }
         .btn-sec { background-color: var(--secondary-color); }
 
-        .bottom-nav {
-            position: fixed; bottom: 0; left: 0; right: 0; background: white; display: flex;
-            justify-content: space-around; padding: 12px 0; box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
-            border-radius: 20px 20px 0 0; z-index: 1000;
-        }
-        .nav-item { display: flex; flex-direction: column; align-items: center; font-size: 11px; color: #888; cursor: pointer; gap: 4px; flex: 1; }
-        .nav-item i { font-size: 18px; }
-        .nav-item.active { color: var(--primary-color); font-weight: bold; }
-
         .hidden { display: none !important; }
+        
+        .class-badge {
+            background: var(--bg-color); color: var(--primary-color); padding: 3px 8px;
+            border-radius: 5px; font-size: 11px; font-weight: bold; border: 1px solid #c2ffd8;
+        }
+
         .item-list { list-style: none; }
         .item-list li {
             background: #fafdfb; padding: 12px; border-radius: 8px; margin-bottom: 8px;
             border: 1px solid #e2f4e8; display: flex; justify-content: space-between; align-items: center;
         }
-
-        .diary-row, .fee-row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px dashed #e2f4e8; font-size: 14px; }
-        .diary-row:last-child, .fee-row:last-child { border-bottom: none; }
 
         .attendance-btn { padding: 6px 12px; border-radius: 6px; border: none; font-weight: bold; cursor: pointer; }
         .att-present { background-color: #d8f3dc; color: #1b4332; }
@@ -81,612 +83,649 @@
         table { width: 100%; border-collapse: collapse; margin-top: 10px; }
         th, td { border: 1px solid #e2f4e8; padding: 8px; text-align: center; font-size: 13px; }
         th { background: var(--primary-color); color: white; }
+
+        .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; background: #fff; padding: 10px 15px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
     </style>
 </head>
 <body>
 
-<!-- LOGIN SCREEN -->
-<div id="login-screen" class="container" style="margin-top: 50px;">
-    <div class="card" style="text-align: center;">
-        <i class="fa-solid fa-mosque" style="font-size: 45px; color: var(--primary-color); margin-bottom: 15px;"></i>
-        <h2 id="madrasa-name-login">দারুল উলুম মাদরাসা</h2>
-        <p style="margin-bottom: 20px; color: #666;">ডিজিটাল ম্যানেজমেন্ট সিস্টেম</p>
-        
-        <select id="login-role" onchange="toggleLoginField()">
-            <option value="student">ছাত্র (Student)</option>
-            <option value="teacher">শিক্ষক (Teacher)</option>
-            <option value="admin">এডমিন (Admin)</option>
-        </select>
-        
-        <input type="text" id="login-id" placeholder="আইডি নম্বর দিন">
-        <button class="btn" onclick="handleLogin()">প্রবেশ করুন</button>
+<!-- 1. LANDING & HOME INFO SCREEN -->
+<div id="landing-container">
+    <div class="main-landing-header">
+        <div class="logo-icon"><i id="lbl-logo" class="fa-solid fa-mosque"></i></div>
+        <h1 id="lbl-madrasa-name">দারুল উলুম মাদরাসা</h1>
+        <p id="lbl-madrasa-address"><i class="fa-solid fa-location-dot"></i> মিরসরাই, চট্টগ্রাম</p>
+    </div>
+
+    <!-- NOTICE TICKER -->
+    <div class="notice-ticker">
+        <i class="fa-solid fa-bullhorn" style="color: #ffc107;"></i>
+        <marquee id="ticker-text" behavior="scroll" direction="left">মাদরাসায় আপনাকে স্বাগতম। সর্বশেষ নোটিশ দেখতে লগইন করুন বা নোটিশবোর্ড লক্ষ্য করুন।</marquee>
+    </div>
+
+    <!-- LOGIN PANEL -->
+    <div class="container" id="login-box">
+        <div class="card">
+            <h3><i class="fa-solid fa-shield-halved"></i> ড্যাশবোর্ড লগইন প্যানেল</h3>
+            <label>আপনার রোল নির্বাচন করুন</label>
+            <select id="login-role" onchange="onRoleChange()">
+                <option value="student">শিক্ষার্থী (Student)</option>
+                <option value="teacher">শিক্ষক (Teacher)</option>
+                <option value="admin">সুপার এডমিন (Admin)</option>
+            </select>
+            
+            <div id="class-select-row">
+                <label>শ্রেণী নির্বাচন করুন</label>
+                <select id="login-class">
+                    <option value="শিশু">শিশু শ্রেণী</option>
+                    <option value="১ম">১ম শ্রেণী</option>
+                    <option value="২য়">২য় শ্রেণী</option>
+                    <option value="৩য়">৩য় শ্রেণী</option>
+                </select>
+            </div>
+
+            <label id="id-label">আইডি নম্বর</label>
+            <input type="text" id="login-id" placeholder="আপনার আইডি দিন">
+            
+            <div id="pass-row" class="hidden">
+                <label>পাসওয়ার্ড</label>
+                <input type="password" id="login-pass" placeholder="পাসওয়ার্ড দিন">
+            </div>
+
+            <button class="btn" onclick="processLogin()"><i class="fa-solid fa-right-to-bracket"></i> প্রবেশ করুন</button>
+        </div>
+
+        <!-- PUBLIC NOTICE VIEW -->
+        <div class="card">
+            <h3><i class="fa-solid fa-bell"></i> সাধারণ নোটিশ বোর্ড</h3>
+            <ul id="public-notice-list" class="item-list"></ul>
+        </div>
     </div>
 </div>
 
-<!-- MAIN APP SCREEN -->
-<div id="app-screen" class="hidden">
-    <!-- MADRASA NAME HEADER -->
-    <div class="header">
-        <h1 id="app-madrasa-name">দারুল উলুম মাদরাসা</h1>
-        <p id="user-display-info">স্বাগতম</p>
-        <button class="btn btn-danger btn-sm" onclick="logout()" style="position: absolute; top: 30px; right: 20px;"><i class="fa-solid fa-sign-out-alt"></i></button>
-    </div>
-
-    <!-- LIVE NOTICE TICKER -->
-    <div id="live-notice-ticker" class="notice-ticker">
-        <i class="fa-solid fa-bullhorn" style="color: #ecc94b;"></i>
-        <marquee id="ticker-text" behavior="scroll" direction="left">সর্বশেষ নোটিশ: মাদরাসায় আপনাকে স্বাগতম।</marquee>
-    </div>
-
+<!-- 2. INTERNAL DASHBOARD SCREEN -->
+<div id="dashboard-container" class="hidden">
     <div class="container">
-        
-        <!-- DIARY TAB -->
-        <div id="page-diary" class="page-content">
-            <div id="student-diary-box" class="card hidden">
-                <h3><i class="fa-solid fa-book-open"></i> আজকের ডায়েরি</h3>
-                <div id="student-diary-view"></div>
+        <div class="top-bar">
+            <div>
+                <h4 id="dash-user-name">ব্যবহারকারী</h4>
+                <p style="font-size: 11px; color: #666;" id="dash-user-role">রোল</p>
             </div>
-            <div id="teacher-diary-box" class="card hidden">
-                <h3><i class="fa-solid fa-pen-to-square"></i> দৈনিক ডায়েরি আপডেট</h3>
-                <div id="diary-inputs-container"></div>
-                <button class="btn" onclick="saveDiary()"><i class="fa-solid fa-save"></i> ডায়েরি সেভ করুন</button>
+            <button class="btn btn-danger btn-sm" onclick="processLogout()"><i class="fa-solid fa-sign-out-alt"></i> লগআউট</button>
+        </div>
+
+        <!-- PASSWORD CHANGE CARD FOR TEACHERS / ADMIN -->
+        <div id="card-change-pass" class="card hidden">
+            <h3><i class="fa-solid fa-key"></i> পাসওয়ার্ড পরিবর্তন অপশন</h3>
+            <input type="password" id="new-password-val" placeholder="নতুন পাসওয়ার্ড লিখুন">
+            <button class="btn btn-sm" onclick="changePassword()"><i class="fa-solid fa-lock-open"></i> পাসওয়ার্ড আপডেট</button>
+        </div>
+
+        <!-- --- TEACHER / STUDENT / ADMIN INTERFACES --- -->
+
+        <!-- DIARY SYSTEM (CLASS-WISE) -->
+        <div id="card-diary" class="card hidden">
+            <h3><i class="fa-solid fa-book-bookmark"></i> শ্রেণীভিত্তিক দৈনিক ডায়েরি</h3>
+            
+            <div id="diary-filter-row">
+                <label>শ্রেণী সিলেক্ট করুন</label>
+                <select id="diary-class-select" onchange="viewDiaryData()">
+                    <option value="শিশু">শিশু শ্রেণী</option>
+                    <option value="১ম">১ম শ্রেণী</option>
+                    <option value="২য়">২য় শ্রেণী</option>
+                    <option value="৩য়">৩য় শ্রেণী</option>
+                </select>
+            </div>
+
+            <label>তারিখ নির্বাচন করুন</label>
+            <input type="date" id="diary-date" onchange="viewDiaryData()">
+
+            <!-- Input area for teachers -->
+            <div id="diary-teacher-inputs" class="hidden">
+                <textarea id="diary-content" rows="4" placeholder="আজকের পড়া এবং বাড়ির কাজ এখানে লিখুন..."></textarea>
+                <button class="btn btn-sec" onclick="saveDiaryData()"><i class="fa-solid fa-save"></i> ডায়েরি পোস্ট করুন</button>
+            </div>
+
+            <!-- View area for student/everyone -->
+            <div id="diary-view-box" style="background: var(--bg-color); padding: 12px; border-radius: 8px; margin-top: 10px; min-height: 50px; font-size: 14px; white-space: pre-line;">
+                কোনো ডায়েরি রেকর্ড পাওয়া যায়নি।
             </div>
         </div>
 
-        <!-- ATTENDANCE TAB -->
-        <div id="page-attendance" class="page-content hidden">
-            <div id="teacher-att-box" class="card hidden">
-                <h3><i class="fa-solid fa-user-check"></i> দৈনিক হাজিরা বোর্ড</h3>
-                <p style="font-size:12px; color:#666; margin-bottom:10px;">আজকের তারিখ: <span id="att-date"></span></p>
-                <ul id="att-student-list" class="item-list"></ul>
+        <!-- ATTENDANCE SYSTEM (CLASS-WISE) -->
+        <div id="card-attendance" class="card hidden">
+            <h3><i class="fa-solid fa-user-check"></i> দৈনিক হাজিরা বোর্ড (তারিখ অনুযায়ী)</h3>
+            <label>শ্রেণী নির্বাচন</label>
+            <select id="att-class-select" onchange="loadAttendanceStudents()">
+                <option value="শিশু">শিশু শ্রেণী</option>
+                <option value="১ম">১ম শ্রেণী</option>
+                <option value="২য়">২য় শ্রেণী</option>
+                <option value="৩য়">৩য় শ্রেণী</option>
+            </select>
+            <label>তারিখ</label>
+            <input type="date" id="att-date" onchange="loadAttendanceStudents()">
+            
+            <ul id="att-students-list" class="item-list"></ul>
+            <div id="att-student-individual-view" class="hidden"></div>
+        </div>
+
+        <!-- FEES & PAYMENTS -->
+        <div id="card-fees" class="card hidden">
+            <h3><i class="fa-solid fa-wallet"></i> বেতন ও ফি ট্রানজেকশন</h3>
+            <div id="fees-admin-inputs" class="hidden">
+                <label>শিক্ষার্থী নির্বাচন করুন</label>
+                <select id="fees-student-id"></select>
+                <input type="text" id="fees-purpose" placeholder="ফির বিবরণ (যেমন: মে মাসের বেতন)">
+                <input type="number" id="fees-amount" placeholder="টাকার পরিমাণ">
+                <button class="btn" onclick="collectStudentFee()">ফি কালেকশন সম্পন্ন করুন</button>
             </div>
-            <div id="student-att-box" class="card hidden">
-                <h3><i class="fa-solid fa-calendar-check"></i> আপনার হাজিরার রেকর্ড</h3>
-                <div id="student-att-view"></div>
+            <div style="margin-top: 15px;">
+                <h4>ফি ট্রানজেকশন রেকর্ডস</h4>
+                <ul id="fees-log-list" class="item-list" style="margin-top:10px;"></ul>
             </div>
         </div>
 
-        <!-- FEES & PAYMENTS TAB -->
-        <div id="page-fees" class="page-content hidden">
-            <div id="admin-fees-box" class="card hidden">
-                <h3><i class="fa-solid fa-file-invoice-dollar"></i> ছাত্র বেতন ও ফি কালেকশন</h3>
-                <select id="fee-student-select"></select>
-                <input type="text" id="fee-purpose" placeholder="ফির বিবরণ (যেমন: মে মাসের বেতন)">
-                <input type="number" id="fee-amount" placeholder="টাকার পরিমাণ">
-                <button class="btn btn-sec" onclick="collectFee()">ফি জমা করুন</button>
+        <!-- ADMIN SUPER CONTROL PANEL -->
+        <div id="card-admin-control" class="card hidden">
+            <h3><i class="fa-solid fa-gears"></i> সুপার এডমিন কন্ট্রোল প্যানেল</h3>
+            
+            <!-- Edit Madrasa Profile -->
+            <div style="border: 1px dashed var(--secondary-color); padding: 12px; border-radius: 8px; margin-bottom: 15px;">
+                <h4><i class="fa-solid fa-edit"></i> মাদরাসা প্রোফাইল এডিট</h4>
+                <label>মাদরাসার নাম</label>
+                <input type="text" id="cfg-name">
+                <label>ঠিকানা</label>
+                <input type="text" id="cfg-address">
+                <label>লোগো আইকন ক্লাস (FontAwesome)</label>
+                <input type="text" id="cfg-logo" placeholder="fa-solid fa-mosque">
+                <button class="btn btn-sm btn-sec" onclick="updateProfile()"><i class="fa-solid fa-rotate"></i> প্রোফাইল আপডেট</button>
             </div>
-            <div class="card">
-                <h3><i class="fa-solid fa-history"></i> পেমেন্ট ও ফি ট্রানজেকশন হিস্ট্রি</h3>
-                <ul id="fees-history-list" class="item-list"></ul>
-            </div>
-        </div>
 
-        <!-- EXAM & ROUTINE TAB -->
-        <div id="page-exam" class="page-content hidden">
-            <div id="admin-routine-box" class="card hidden">
-                <h3><i class="fa-solid fa-calendar-plus"></i> পরীক্ষার নাম ও রুটিন সেটিংস</h3>
-                <input type="text" id="exam-title" placeholder="পরীক্ষার নাম">
-                <textarea id="exam-routine-text" rows="3" placeholder="রুটিন বিবরণ লিখুন"></textarea>
-                <button class="btn" onclick="saveRoutine()">রুটিন আপডেট করুন</button>
+            <!-- Student entry -->
+            <div style="border: 1px dashed var(--secondary-color); padding: 12px; border-radius: 8px; margin-bottom: 15px;">
+                <h4><i class="fa-solid fa-user-plus"></i> নতুন ছাত্র/ছাত্রী এন্ট্রি</h4>
+                <label>শ্রেণী</label>
+                <select id="new-std-class">
+                    <option value="শিশু">শিশু শ্রেণী</option>
+                    <option value="১ম">১ম শ্রেণী</option>
+                    <option value="২য়">২য় শ্রেণী</option>
+                    <option value="৩য়">৩য় শ্রেণী</option>
+                </select>
+                <input type="text" id="new-std-name" placeholder="শিক্ষার্থীর নাম">
+                <input type="text" id="new-std-id" placeholder="আইডি / রোল নম্বর">
+                <button class="btn btn-sm" onclick="addStudent()"><i class="fa-solid fa-plus"></i> স্টুডেন্ট সেভ করুন</button>
             </div>
-            <div id="student-exam-box" class="card hidden">
-                <h3><i class="fa-solid fa-calendar-days"></i> পরীক্ষার রুটিন (<span id="exam-title-view"></span>)</h3>
-                <p id="student-routine-view" style="white-space:pre-line; background:#f9fafb; padding:10px; border-radius:8px; border:1px dashed #40916c; margin-bottom:15px; font-size:14px;"></p>
-                <h3><i class="fa-solid fa-graduation-cap"></i> আপনার মার্কশীট</h3>
-                <div id="student-marks-view"></div>
-            </div>
-            <div id="teacher-marks-box" class="card hidden">
-                <h3><i class="fa-solid fa-star"></i> পরীক্ষার নম্বর ও মার্কশীট এন্ট্রি</h3>
-                <ul id="marks-student-list" class="item-list"></ul>
-            </div>
-        </div>
 
-        <!-- NOTICE TAB -->
-        <div id="page-notice" class="page-content hidden">
-            <div id="admin-notice-box" class="card hidden">
-                <h3><i class="fa-solid fa-bullhorn"></i> নতুন নোটিশ পোস্ট</h3>
-                <textarea id="notice-text" placeholder="নোটিশের লেখা..."></textarea>
-                <button class="btn" onclick="addNotice()">নোটিশ দিন</button>
+            <!-- Teacher Entry -->
+            <div style="border: 1px dashed var(--secondary-color); padding: 12px; border-radius: 8px; margin-bottom: 15px;">
+                <h4><i class="fa-solid fa-user-tie"></i> নতুন শিক্ষক এন্ট্রি</h4>
+                <input type="text" id="new-tch-name" placeholder="শিক্ষকের নাম">
+                <input type="text" id="new-tch-id" placeholder="শিক্ষক আইডি">
+                <input type="password" id="new-tch-pass" placeholder="লগইন পাসওয়ার্ড" value="123456">
+                <button class="btn btn-sm btn-sec" onclick="addTeacher()"><i class="fa-solid fa-plus"></i> শিক্ষক সেভ করুন</button>
             </div>
-            <div class="card">
-                <h3><i class="fa-solid fa-bell"></i> নোটিশ বোর্ড</h3>
-                <ul id="global-notice-list" class="item-list"></ul>
-            </div>
-        </div>
 
-        <!-- CONTROL PANEL (ADMIN ONLY) -->
-        <div id="page-control" class="page-content hidden">
-            <div class="card">
-                <h3><i class="fa-solid fa-mosque"></i> মাদরাসার নাম পরিবর্তন</h3>
-                <input type="text" id="cfg-madrasa-name" placeholder="মাদরাসার নাম লিখুন">
-                <button class="btn btn-sec" onclick="updateMadrasaName()">নাম পরিবর্তন করুন</button>
+            <!-- Admin Post Notice -->
+            <div style="border: 1px dashed var(--secondary-color); padding: 12px; border-radius: 8px; margin-bottom: 15px;">
+                <h4><i class="fa-solid fa-bullhorn"></i> নতুন অফিশিয়াল নোটিশ পোস্ট</h4>
+                <textarea id="notice-input-text" rows="2" placeholder="নোটিশের বিস্তারিত লিখুন..."></textarea>
+                <button class="btn btn-sm" onclick="saveNotice()"><i class="fa-solid fa-paper-plane"></i> নোটিশ পাবলিশ করুন</button>
             </div>
-            <div class="card">
-                <h3><i class="fa-solid fa-user-plus"></i> নতুন শিক্ষার্থী যোগ করুন</h3>
-                <input type="text" id="new-student-name" placeholder="শিক্ষার্থীর নাম">
-                <input type="text" id="new-student-id" placeholder="রোল / আইডি">
-                <button class="btn" onclick="addStudent()">শিক্ষার্থী যোগ করুন</button>
-            </div>
-            <div class="card">
-                <h3><i class="fa-solid fa-user-tie"></i> নতুন শিক্ষক যোগ করুন</h3>
-                <input type="text" id="new-teacher-name" placeholder="শিক্ষকের নাম">
-                <input type="text" id="new-teacher-id" placeholder="শিক্ষক আইডি">
-                <button class="btn btn-sec" onclick="addTeacher()">শিক্ষক যোগ করুন</button>
-            </div>
-            <div class="card">
-                <h3><i class="fa-solid fa-sliders"></i> বিষয়ের নাম কাস্টমাইজেশন (১০টি সাবজেক্ট)</h3>
-                <div id="subject-settings-inputs"></div>
-                <button class="btn" onclick="saveSubjectSettings()">সাবজেক্ট নাম আপডেট করুন</button>
-            </div>
-            <div class="card">
-                <h3><i class="fa-solid fa-users"></i> বর্তমান শিক্ষার্থী ম্যানেজমেন্ট</h3>
-                <ul id="admin-all-students" class="item-list"></ul>
+
+            <!-- Student Management & Remove Option -->
+            <div>
+                <h4><i class="fa-solid fa-users"></i> বর্তমান শিক্ষার্থী তালিকা ও রিমুভ অপশন</h4>
+                <select id="manage-class-select" onchange="renderManageStudents()" style="margin-top:5px;">
+                    <option value="শিশু">শিশু শ্রেণী</option>
+                    <option value="১ম">১ম শ্রেণী</option>
+                    <option value="২য়">২য় শ্রেণী</option>
+                    <option value="৩য়">৩য় শ্রেণী</option>
+                </select>
+                <ul id="manage-student-list" class="item-list"></ul>
             </div>
         </div>
 
     </div>
-
-    <!-- NAVIGATION SYSTEM -->
-    <div class="bottom-nav" id="custom-nav"></div>
 </div>
 
-<!-- MARKS INPUT MODAL -->
-<div id="marks-modal" class="hidden" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:2000; display:flex; align-items:center; justify-content:center; padding:20px;">
-    <div class="card" style="width:100%; max-width:400px; margin-bottom:0;">
-        <h3 id="modal-title">নম্বর দিন</h3>
-        <div id="modal-inputs" style="max-height: 250px; overflow-y: auto; margin-bottom:15px;"></div>
-        <button class="btn" onclick="saveStudentMarks()" style="margin-bottom:8px;">সংরক্ষণ করুন</button>
-        <button class="btn btn-danger" onclick="closeModal()">বন্ধ করুন</button>
-    </div>
-</div>
 
 <script>
-    const defaultSubs = ["কুরআন", "হাদিস", "আকাইদ", "ফিকহ", "আরবি", "বাংলা", "ইংরেজি", "গণিত", "ইতিহাস", "উর্দু"];
-
+    // --- APP DATABASE ENGINE (LOCALSTORAGE BASED) ---
     let db = {
-        madrasaName: localStorage.getItem('m_name') || "দারুল উলুম মাদরাসা",
-        students: JSON.parse(localStorage.getItem('m_students')) || [],
-        teachers: JSON.parse(localStorage.getItem('m_teachers')) || [{name: "মাওলানা আব্দুর রহমান", id: "t101"}],
-        notices: JSON.parse(localStorage.getItem('m_notices')) || [],
-        subjects: JSON.parse(localStorage.getItem('m_subjects')) || defaultSubs,
-        diary: JSON.parse(localStorage.getItem('m_diary')) || {},
-        examTitle: localStorage.getItem('m_exam_title') || "১ম সাময়িক পরীক্ষা",
-        examRoutine: localStorage.getItem('m_exam_routine') || "রুটিন আপডেট করা হয়নি।",
-        marks: JSON.parse(localStorage.getItem('m_marks')) || {},
-        attendance: JSON.parse(localStorage.getItem('m_attendance')) || {},
-        fees: JSON.parse(localStorage.getItem('m_fees')) || []
+        profile: JSON.parse(localStorage.getItem('md_profile')) || { name: "দারুল উলুম মাদরাসা", address: "মিরসরাই, চট্টগ্রাম", logo: "fa-solid fa-mosque" },
+        adminPass: localStorage.getItem('md_admin_pass') || "admin",
+        teachers: JSON.parse(localStorage.getItem('md_teachers')) || [{ name: "মাওলানা মোহাম্মদ আলী", id: "t101", pass: "123456" }],
+        students: JSON.parse(localStorage.getItem('md_students')) || [
+            { name: "আব্দুল্লাহ", id: "101", class: "শিশু" },
+            { name: "আহমেদ রাজা", id: "201", class: "১ম" }
+        ],
+        notices: JSON.parse(localStorage.getItem('md_notices')) || [{ id: 1, text: "আসসালামু আলাইকুম। মাদরাসার নতুন ডিজিটাল ড্যাশবোর্ডে আপনাকে স্বাগতম।", date: new Date().toLocaleDateString('bn-BD') }],
+        diary: JSON.parse(localStorage.getItem('md_diary')) || {}, // keyed by 'date_class'
+        attendance: JSON.parse(localStorage.getItem('md_attendance')) || {}, // keyed by 'date_class'
+        fees: JSON.parse(localStorage.getItem('md_fees')) || []
     };
 
     let session = null;
-    let activeStudentId = null;
 
-    // Initial Setup on load
-    document.getElementById('madrasa-name-login').innerText = db.madrasaName;
+    // --- APPLICATION STARTUP ---
+    window.onload = function() {
+        // Set Date standard fields
+        let todayStr = new Date().toISOString().split('T')[0];
+        document.getElementById('diary-date').value = todayStr;
+        document.getElementById('att-date').value = todayStr;
 
-    function saveDB() {
-        localStorage.setItem('m_name', db.madrasaName);
-        localStorage.setItem('m_students', JSON.stringify(db.students));
-        localStorage.setItem('m_teachers', JSON.stringify(db.teachers));
-        localStorage.setItem('m_notices', JSON.stringify(db.notices));
-        localStorage.setItem('m_subjects', JSON.stringify(db.subjects));
-        localStorage.setItem('m_diary', JSON.stringify(db.diary));
-        localStorage.setItem('m_exam_title', db.examTitle);
-        localStorage.setItem('m_exam_routine', db.examRoutine);
-        localStorage.setItem('m_marks', JSON.stringify(db.marks));
-        localStorage.setItem('m_attendance', JSON.stringify(db.attendance));
-        localStorage.setItem('m_fees', JSON.stringify(db.fees));
+        applyProfileDOM();
+        renderPublicNotices();
+    };
+
+    function syncStorage() {
+        localStorage.setItem('md_profile', JSON.stringify(db.profile));
+        localStorage.setItem('md_admin_pass', db.adminPass);
+        localStorage.setItem('md_teachers', JSON.stringify(db.teachers));
+        localStorage.setItem('md_students', JSON.stringify(db.students));
+        localStorage.setItem('md_notices', JSON.stringify(db.notices));
+        localStorage.setItem('md_diary', JSON.stringify(db.diary));
+        localStorage.setItem('md_attendance', JSON.stringify(db.attendance));
+        localStorage.setItem('md_fees', JSON.stringify(db.fees));
     }
 
-    function toggleLoginField() {
+    function applyProfileDOM() {
+        document.getElementById('lbl-madrasa-name').innerText = db.profile.name;
+        document.getElementById('lbl-madrasa-address').innerHTML = `<i class="fa-solid fa-location-dot"></i> ${db.profile.address}`;
+        document.getElementById('lbl-logo').className = db.profile.logo;
+        
+        // Update setup form
+        document.getElementById('cfg-name').value = db.profile.name;
+        document.getElementById('cfg-address').value = db.profile.address;
+        document.getElementById('cfg-logo').value = db.profile.logo;
+
+        if(db.notices.length > 0) {
+            document.getElementById('ticker-text').innerText = `সর্বশেষ নোটিশ: ${db.notices[0].text} (${db.notices[0].date})`;
+        }
+    }
+
+    function onRoleChange() {
         let role = document.getElementById('login-role').value;
-        document.getElementById('login-id').placeholder = role === 'admin' ? "ইউজারনেম দিন (admin)" : "আইডি নম্বর দিন";
+        if(role === 'student') {
+            document.getElementById('class-select-row').classList.remove('hidden');
+            document.getElementById('pass-row').classList.add('hidden');
+            document.getElementById('id-label').innerText = "আইডি / রোল নম্বর";
+        } else if(role === 'teacher') {
+            document.getElementById('class-select-row').classList.add('hidden');
+            document.getElementById('pass-row').classList.remove('hidden');
+            document.getElementById('id-label').innerText = "শিক্ষক আইডি";
+        } else {
+            document.getElementById('class-select-row').classList.add('hidden');
+            document.getElementById('pass-row').classList.remove('hidden');
+            document.getElementById('id-label').innerText = "এডমিন ইউজারনেম";
+        }
     }
 
-    function handleLogin() {
+    // --- AUTHENTICATION CONTROLLER ---
+    function processLogin() {
         let role = document.getElementById('login-role').value;
         let id = document.getElementById('login-id').value.trim();
-        if(!id) return alert('আইডি প্রদান করুন');
+        let pass = document.getElementById('login-pass').value;
+        let cls = document.getElementById('login-class').value;
 
-        if(role === 'admin' && id === 'admin') {
-            session = { role: 'admin', name: 'প্রধান পরিচালক', id: 'admin' };
+        if(!id) return alert('দয়া করে আইডি প্রদান করুন!');
+
+        if(role === 'admin') {
+            if(id === 'admin' && pass === db.adminPass) {
+                session = { role: 'admin', name: 'প্রধান পরিচালক (সুপার এডমিন)', id: 'admin' };
+            } else { return alert('ভুল এডমিন পাসওয়ার্ড!'); }
         } else if(role === 'teacher') {
-            let t = db.teachers.find(teacher => teacher.id === id);
-            if(t) session = { role: 'teacher', name: t.name, id: t.id };
-            else return alert('ভুল শিক্ষক আইডি!');
+            let t = db.teachers.find(tch => tch.id === id && tch.pass === pass);
+            if(t) {
+                session = { role: 'teacher', name: t.name, id: t.id };
+            } else { return alert('ভুল শিক্ষক আইডি অথবা পাসওয়ার্ড!'); }
         } else if(role === 'student') {
-            let s = db.students.find(std => std.id === id);
-            if(s) session = { role: 'student', name: s.name, id: s.id };
-            else return alert('ভুল ছাত্র আইডি!');
-        } else {
-            return alert('সঠিক তথ্য দিয়ে চেষ্টা করুন');
+            let s = db.students.find(std => std.id === id && std.class === cls);
+            if(s) {
+                session = { role: 'student', name: s.name, id: s.id, class: cls };
+            } else { return alert('এই শ্রেণীতে প্রদত্ত আইডিটি খুঁজে পাওয়া যায়নি!'); }
         }
 
-        document.getElementById('login-screen').classList.add('hidden');
-        document.getElementById('app-screen').classList.remove('hidden');
+        // Direct Routing on Dashboard
+        document.getElementById('landing-container').classList.add('hidden');
+        document.getElementById('dashboard-container').classList.remove('hidden');
         
-        // Show Madrasa Name & Active Ticker Notice
-        document.getElementById('app-madrasa-name').innerText = db.madrasaName;
-        updateNoticeTicker();
+        document.getElementById('dash-user-name').innerText = session.name;
+        document.getElementById('dash-user-role').innerText = `রোল: ${session.role.toUpperCase()} ${session.class ? `(${session.class} শ্রেণী)` : ''}`;
 
-        buildNavigation();
-        switchPage('diary');
+        setupDashboardPanels();
     }
 
-    function logout() {
+    function processLogout() {
         session = null;
-        document.getElementById('app-screen').classList.add('hidden');
-        document.getElementById('login-screen').classList.remove('hidden');
+        document.getElementById('dashboard-container').classList.add('hidden');
+        document.getElementById('landing-container').classList.remove('hidden');
         document.getElementById('login-id').value = '';
+        document.getElementById('login-pass').value = '';
     }
 
-    function updateNoticeTicker() {
-        let ticker = document.getElementById('ticker-text');
-        if(db.notices.length > 0) {
-            ticker.innerText = `সর্বশেষ নোটিশ (${db.notices[0].date}): ${db.notices[0].text}`;
-        } else {
-            ticker.innerText = "নতুন কোনো নোটিশ নেই। মাদরাসা ড্যাশবোর্ডে আপনাকে স্বাগতম।";
-        }
-    }
-
-    function updateMadrasaName() {
-        let newName = document.getElementById('cfg-madrasa-name').value.trim();
-        if(!newName) return alert('মাদরাসার নাম খালি রাখা যাবে না!');
-        db.madrasaName = newName;
-        saveDB();
-        document.getElementById('app-madrasa-name').innerText = newName;
-        document.getElementById('madrasa-name-login').innerText = newName;
-        alert('মাদরাসার নাম সফলভাবে পরিবর্তন করা হয়েছে!');
-    }
-
-    function buildNavigation() {
-        let nav = document.getElementById('custom-nav');
-        if(session.role === 'admin') {
-            nav.innerHTML = `
-                <div class="nav-item active" id="tab-diary" onclick="switchPage('diary')"><i class="fa-solid fa-book"></i>ডায়েরি</div>
-                <div class="nav-item" id="tab-fees" onclick="switchPage('fees')"><i class="fa-solid fa-file-invoice-dollar"></i>বেতন/ফি</div>
-                <div class="nav-item" id="tab-exam" onclick="switchPage('exam')"><i class="fa-solid fa-graduation-cap"></i>পরীক্ষা</div>
-                <div class="nav-item" id="tab-notice" onclick="switchPage('notice')"><i class="fa-solid fa-bullhorn"></i>নোটিশ</div>
-                <div class="nav-item" id="tab-control" onclick="switchPage('control')"><i class="fa-solid fa-sliders"></i>কন্ট্রোল</div>
-            `;
-        } else if(session.role === 'teacher') {
-            nav.innerHTML = `
-                <div class="nav-item active" id="tab-diary" onclick="switchPage('diary')"><i class="fa-solid fa-book"></i>ডায়েরি</div>
-                <div class="nav-item" id="tab-attendance" onclick="switchPage('attendance')"><i class="fa-solid fa-user-check"></i>হাজিরা</div>
-                <div class="nav-item" id="tab-exam" onclick="switchPage('exam')"><i class="fa-solid fa-graduation-cap"></i>মার্কস</div>
-                <div class="nav-item" id="tab-notice" onclick="switchPage('notice')"><i class="fa-solid fa-bullhorn"></i>নোটিশ</div>
-            `;
-        } else {
-            nav.innerHTML = `
-                <div class="nav-item active" id="tab-diary" onclick="switchPage('diary')"><i class="fa-solid fa-book"></i>ডায়েরি</div>
-                <div class="nav-item" id="tab-attendance" onclick="switchPage('attendance')"><i class="fa-solid fa-user-check"></i>হাজিরা</div>
-                <div class="nav-item" id="tab-fees" onclick="switchPage('fees')"><i class="fa-solid fa-wallet"></i>ফি রশিদ</div>
-                <div class="nav-item" id="tab-exam" onclick="switchPage('exam')"><i class="fa-solid fa-graduation-cap"></i>রুটিন-মার্কস</div>
-                <div class="nav-item" id="tab-notice" onclick="switchPage('notice')"><i class="fa-solid fa-bullhorn"></i>নোটিশ</div>
-            `;
-        }
-    }
-
-    function switchPage(pageId) {
-        document.querySelectorAll('.page-content').forEach(p => p.classList.add('hidden'));
-        document.querySelectorAll('.nav-item').forEach(t => t.classList.remove('active'));
+    function changePassword() {
+        let newPass = document.getElementById('new-password-val').value.trim();
+        if(!newPass) return alert('পাসওয়ার্ড খালি হতে পারে না!');
         
-        document.getElementById(`page-${pageId}`).classList.remove('hidden');
-        if(document.getElementById(`tab-${pageId}`)) document.getElementById(`tab-${pageId}`).classList.add('active');
-
-        document.getElementById('user-display-info').innerText = `${session.name} (${session.role.toUpperCase()} ID: ${session.id})`;
-
-        if(pageId === 'diary') loadDiaryPage();
-        if(pageId === 'attendance') loadAttendancePage();
-        if(pageId === 'fees') loadFeesPage();
-        if(pageId === 'exam') loadExamPage();
-        if(pageId === 'notice') loadNoticePage();
-        if(pageId === 'control') loadControlPage();
-    }
-
-    // --- DIARY SYSTEM ---
-    function loadDiaryPage() {
-        if(session.role === 'admin' || session.role === 'teacher') {
-            document.getElementById('teacher-diary-box').classList.remove('hidden');
-            document.getElementById('student-diary-box').classList.add('hidden');
-            let container = document.getElementById('diary-inputs-container');
-            container.innerHTML = '';
-            db.subjects.forEach(sub => {
-                let text = db.diary[sub] || '';
-                container.innerHTML += `<div style="margin-bottom:8px;"><label style="font-weight:bold; font-size:13px;">${sub}</label><input type="text" id="inp-diary-${sub}" value="${text}" placeholder="আজকের পড়া"></div>`;
-            });
-        } else {
-            document.getElementById('student-diary-box').classList.remove('hidden');
-            document.getElementById('teacher-diary-box').classList.add('hidden');
-            let view = document.getElementById('student-diary-view');
-            view.innerHTML = '';
-            db.subjects.forEach(sub => {
-                let task = db.diary[sub] || 'পড়া দেওয়া হয়নি';
-                view.innerHTML += `<div class="diary-row"><span style="font-weight:bold;">${sub}</span><span>${task}</span></div>`;
-            });
+        if(session.role === 'admin') {
+            db.adminPass = newPass;
+        } else if(session.role === 'teacher') {
+            let t = db.teachers.find(tch => tch.id === session.id);
+            if(t) t.pass = newPass;
         }
+        syncStorage();
+        alert('পাসওয়ার্ড সফলভাবে পরিবর্তন হয়েছে!');
+        document.getElementById('new-password-val').value = '';
     }
 
-    function saveDiary() {
-        db.subjects.forEach(sub => { db.diary[sub] = document.getElementById(`inp-diary-${sub}`).value.trim(); });
-        saveDB(); alert('ডায়েরি আপডেট সম্পন্ন হয়েছে!');
-    }
+    // --- DASHBOARD ROUTER VIEW ---
+    function setupDashboardPanels() {
+        // Reset all screens
+        document.getElementById('card-change-pass').classList.add('hidden');
+        document.getElementById('card-diary').classList.add('hidden');
+        document.getElementById('card-attendance').classList.add('hidden');
+        document.getElementById('card-fees').classList.add('hidden');
+        document.getElementById('card-admin-control').classList.add('hidden');
+        document.getElementById('diary-teacher-inputs').classList.add('hidden');
+        document.getElementById('fees-admin-inputs').classList.add('hidden');
 
-    // --- ATTENDANCE SYSTEM ---
-    function loadAttendancePage() {
-        let today = new Date().toLocaleDateString('bn-BD');
-        if(session.role === 'teacher') {
-            document.getElementById('teacher-att-box').classList.remove('hidden');
-            document.getElementById('student-att-box').classList.add('hidden');
-            document.getElementById('att-date').innerText = today;
-            renderAttendanceList(today);
+        if(session.role === 'admin') {
+            document.getElementById('card-change-pass').classList.remove('hidden');
+            document.getElementById('card-diary').classList.remove('hidden');
+            document.getElementById('card-attendance').classList.remove('hidden');
+            document.getElementById('card-fees').classList.remove('hidden');
+            document.getElementById('card-admin-control').classList.remove('hidden');
+            
+            document.getElementById('fees-admin-inputs').classList.remove('hidden');
+            populateFeesStudentDropdown();
+            renderManageStudents();
+            viewDiaryData();
+            loadAttendanceStudents();
+            renderFeesLog();
+        } else if(session.role === 'teacher') {
+            document.getElementById('card-change-pass').classList.remove('hidden');
+            document.getElementById('card-diary').classList.remove('hidden');
+            document.getElementById('card-attendance').classList.remove('hidden');
+            document.getElementById('diary-teacher-inputs').classList.remove('hidden');
+            
+            viewDiaryData();
+            loadAttendanceStudents();
         } else if(session.role === 'student') {
-            document.getElementById('student-att-box').classList.remove('hidden');
-            document.getElementById('teacher-att-box').classList.add('hidden');
-            renderStudentAttendance();
+            document.getElementById('card-diary').classList.remove('hidden');
+            document.getElementById('card-attendance').classList.remove('hidden');
+            document.getElementById('card-fees').classList.remove('hidden');
+            
+            // Auto lock to student class
+            document.getElementById('diary-class-select').value = session.class;
+            document.getElementById('diary-filter-row').style.display = 'none'; // Force hide changing class
+            
+            document.getElementById('att-class-select').value = session.class;
+            document.getElementById('att-class-select').disabled = true;
+
+            viewDiaryData();
+            renderStudentIndividualAttendance();
+            renderFeesLog();
         }
     }
 
-    function renderAttendanceList(dateStr) {
-        let list = document.getElementById('att-student-list');
-        list.innerHTML = db.students.length ? '' : '<li>কোনো শিক্ষার্থী পাওয়া যায়নি</li>';
-        if(!db.attendance[dateStr]) db.attendance[dateStr] = {};
+    // --- 1. CLASS-WISE DIARY SYSTEM ---
+    function viewDiaryData() {
+        let cls = document.getElementById('diary-class-select').value;
+        let date = document.getElementById('diary-date').value;
+        let key = `${date}_${cls}`;
+        
+        let content = db.diary[key] || "আজকের কোনো ডায়েরি বা বাড়ির কাজ পোস্ট করা হয়নি।";
+        document.getElementById('diary-view-box').innerText = content;
+        
+        if(session.role === 'admin' || session.role === 'teacher') {
+            document.getElementById('diary-content').value = db.diary[key] || "";
+        }
+    }
 
-        db.students.forEach(s => {
-            let status = db.attendance[dateStr][s.id] || "حاضর (উপস্থিত)";
+    function saveDiaryData() {
+        let cls = document.getElementById('diary-class-select').value;
+        let date = document.getElementById('diary-date').value;
+        let text = document.getElementById('diary-content').value.trim();
+        let key = `${date}_${cls}`;
+
+        if(!date) return alert('তারিখ সিলেক্ট করুন!');
+        db.diary[key] = text;
+        syncStorage();
+        alert('উক্ত শ্রেণীর ডায়েরি সফলভাবে সংরক্ষণ করা হয়েছে!');
+        viewDiaryData();
+    }
+
+    // --- 2. ATTENDANCE SYSTEM ---
+    function loadAttendanceStudents() {
+        if(session.role === 'student') return;
+        
+        let cls = document.getElementById('att-class-select').value;
+        let date = document.getElementById('att-date').value;
+        let list = document.getElementById('att-students-list');
+        list.innerHTML = '';
+
+        if(!date) return;
+        let key = `${date}_${cls}`;
+        if(!db.attendance[key]) db.attendance[key] = {};
+
+        let filtered = db.students.filter(s => s.class === cls);
+        if(filtered.length === 0) {
+            list.innerHTML = '<li>এই শ্রেণীতে কোনো শিক্ষার্থী এন্ট্রি করা নেই।</li>';
+            return;
+        }
+
+        filtered.forEach(s => {
+            let status = db.attendance[key][s.id] || "উপস্থিত";
             let li = document.createElement('li');
-            let isPresent = status.includes("উপস্থিত");
-            li.innerHTML = `<span><strong>${s.name}</strong> (আইডি: ${s.id})</span>
-            <button class="attendance-btn ${isPresent?'att-present':'att-absent'}" onclick="toggleAttendance('${dateStr}','${s.id}')">${status}</button>`;
+            let isPresent = (status === "উপস্থিত");
+            
+            li.innerHTML = `<span><strong>${s.name}</strong> (রোল/আইডি: ${s.id})</span>
+            <button class="attendance-btn ${isPresent?'att-present':'att-absent'}" onclick="toggleAttendance('${key}','${s.id}')">${status}</button>`;
             list.appendChild(li);
         });
     }
 
-    function toggleAttendance(dateStr, studentId) {
-        let current = db.attendance[dateStr][studentId] || "حاضর (উপস্থিত)";
-        db.attendance[dateStr][studentId] = current.includes("উপস্থিত") ? "غائب (অনুপস্থিত)" : "حاضর (উপস্থিত)";
-        saveDB();
-        renderAttendanceList(dateStr);
+    function toggleAttendance(key, studentId) {
+        let current = db.attendance[key][studentId] || "উপস্থিত";
+        db.attendance[key][studentId] = (current === "উপস্থিত") ? "অনুপস্থিত" : "উপস্থিত";
+        syncStorage();
+        loadAttendanceStudents();
     }
 
-    function renderStudentAttendance() {
-        let view = document.getElementById('student-att-view');
-        let html = `<table><tr><th>তারিখ</th><th>হাজিরা অবস্থা</th></tr>`;
-        let hasData = false;
-        Object.keys(db.attendance).forEach(date => {
-            if(db.attendance[date][session.id]) {
-                hasData = true;
-                html += `<tr><td>${date}</td><td>${db.attendance[date][session.id]}</td></tr>`;
+    function renderStudentIndividualAttendance() {
+        let container = document.getElementById('att-student-individual-view');
+        container.classList.remove('hidden');
+        document.getElementById('att-students-list').innerHTML = '';
+        
+        let html = `<h4>আপনার হাজিরার বিবরণী</h4><table><tr><th>তারিখ</th><th>অবস্থা</th></tr>`;
+        let count = 0;
+
+        Object.keys(db.attendance).forEach(key => {
+            let parts = key.split('_'); // [date, class]
+            if(parts[1] === session.class && db.attendance[key][session.id]) {
+                count++;
+                html += `<tr><td>${parts[0]}</td><td><strong>${db.attendance[key][session.id]}</strong></td></tr>`;
             }
         });
+
         html += `</table>`;
-        view.innerHTML = hasData ? html : '<p style="text-align:center; padding:10px;">এখনো কোনো হাজিরার রেকর্ড নেই।</p>';
+        container.innerHTML = count > 0 ? html : "<p>এখনো কোনো হাজিরার রেকর্ড আপলোড হয়নি।</p>";
     }
 
-    // --- FEES & PAYMENTS SYSTEM ---
-    function loadFeesPage() {
-        if(session.role === 'admin') {
-            document.getElementById('admin-fees-box').classList.remove('hidden');
-            let select = document.getElementById('fee-student-select');
-            select.innerHTML = '';
-            db.students.forEach(s => { select.innerHTML += `<option value="${s.id}">${s.name} (${s.id})</option>`; });
-        } else {
-            document.getElementById('admin-fees-box').classList.add('hidden');
-        }
-        renderFeesHistory();
-    }
-
-    function collectFee() {
-        let studentId = document.getElementById('fee-student-select').value;
-        let purpose = document.getElementById('fee-purpose').value.trim();
-        let amount = document.getElementById('fee-amount').value.trim();
-        if(!purpose || !amount) return alert('সবগুলো তথ্য পূরণ করুন');
-
-        let s = db.students.find(std => std.id === studentId);
-        db.fees.unshift({
-            id: Date.now(), studentId, studentName: s.name, purpose, amount, date: new Date().toLocaleDateString('bn-BD')
+    // --- 3. FEES & PAYMENTS ---
+    function populateFeesStudentDropdown() {
+        let select = document.getElementById('fees-student-id');
+        select.innerHTML = '';
+        db.students.forEach(s => {
+            select.innerHTML += `<option value="${s.id}">${s.name} [শ্রেণী: ${s.class}, আইডি: ${s.id}]</option>`;
         });
-        saveDB();
-        document.getElementById('fee-purpose').value = '';
-        document.getElementById('fee-amount').value = '';
-        alert('ফি সংগ্রহ সফল হয়েছে!');
-        renderFeesHistory();
     }
 
-    function renderFeesHistory() {
-        let list = document.getElementById('fees-history-list');
+    function collectStudentFee() {
+        let studentId = document.getElementById('fees-student-id').value;
+        let purpose = document.getElementById('fees-purpose').value.trim();
+        let amount = document.getElementById('fees-amount').value.trim();
+
+        if(!purpose || !amount) return alert('অনুগ্রহ করে সমস্ত তথ্য দিন!');
+        let s = db.students.find(std => std.id === studentId);
+
+        db.fees.unshift({
+            id: Date.now(),
+            studentId: s.id,
+            studentName: s.name,
+            class: s.class,
+            purpose,
+            amount,
+            date: new Date().toLocaleDateString('bn-BD')
+        });
+
+        syncStorage();
+        alert('ফি এর রশিদ সফলভাবে তৈরি হয়েছে!');
+        document.getElementById('fees-purpose').value = '';
+        document.getElementById('fees-amount').value = '';
+        renderFeesLog();
+    }
+
+    function renderFeesLog() {
+        let list = document.getElementById('fees-log-list');
         list.innerHTML = '';
-        let filtered = session.role === 'student' ? db.fees.filter(f => f.studentId === session.id) : db.fees;
         
-        if(!filtered.length) { list.innerHTML = '<li>কোনো ট্রানজেকশন ডাটা নেই</li>'; return; }
-        filtered.forEach(f => {
+        let data = (session.role === 'student') ? db.fees.filter(f => f.studentId === session.id && f.class === session.class) : db.fees;
+        
+        if(data.length === 0) {
+            list.innerHTML = '<li>কোনো ট্রানজেকশন ডাটা পাওয়া যায়নি।</li>';
+            return;
+        }
+
+        data.forEach(f => {
             list.innerHTML += `<li>
-                <div><small style="color:green;">${f.date} - আইডি: ${f.studentId}</small><p><strong>${f.studentName}</strong>: ${f.purpose}</p></div>
-                <div><span style="font-weight:bold; color:var(--primary-color);">${f.amount}/- টাকা</span></div>
+                <div>
+                    <small style="color:green; font-weight:bold;">${f.date} - ${f.class} শ্রেণী</small>
+                    <p><strong>${f.studentName}</strong> (আইডি: ${f.studentId})</p>
+                    <span style="font-size:12px; color:#555;">বিবরণ: ${f.purpose}</span>
+                </div>
+                <div style="font-weight:bold; color:var(--primary-color);">${f.amount}/- ৳</div>
             </li>`;
         });
     }
 
-    // --- EXAM & MARK VALUATION ---
-    function loadExamPage() {
-        if(session.role === 'admin') {
-            document.getElementById('admin-routine-box').classList.remove('hidden');
-            document.getElementById('teacher-marks-box').classList.add('hidden');
-            document.getElementById('student-exam-box').classList.add('hidden');
-            document.getElementById('exam-title').value = db.examTitle;
-            document.getElementById('exam-routine-text').value = db.examRoutine;
-        } else if(session.role === 'teacher') {
-            document.getElementById('teacher-marks-box').classList.remove('hidden');
-            document.getElementById('admin-routine-box').classList.add('hidden');
-            document.getElementById('student-exam-box').classList.add('hidden');
-            renderTeacherMarksStudentList();
-        } else {
-            document.getElementById('student-exam-box').classList.remove('hidden');
-            document.getElementById('admin-routine-box').classList.add('hidden');
-            document.getElementById('teacher-marks-box').classList.add('hidden');
-            document.getElementById('exam-title-view').innerText = db.examTitle;
-            document.getElementById('student-routine-view').innerText = db.examRoutine;
-            renderStudentMarksheet();
-        }
-    }
-
-    function saveRoutine() {
-        db.examTitle = document.getElementById('exam-title').value.trim() || 'পরীক্ষা';
-        db.examRoutine = document.getElementById('exam-routine-text').value.trim() || 'রুটিন নেই';
-        saveDB(); alert('রুটিন সেভ করা হয়েছে!');
-    }
-
-    function renderTeacherMarksStudentList() {
-        let list = document.getElementById('marks-student-list');
-        list.innerHTML = db.students.length ? '' : '<li>কোনো শিক্ষার্থী নেই</li>';
-        db.students.forEach(s => {
-            list.innerHTML += `<li><span><strong>${s.name}</strong> (আইডি: ${s.id})</span>
-            <button class="btn btn-sm" onclick="openMarksModal('${s.id}')"><i class="fa fa-star"></i> নম্বর দিন</button></li>`;
-        });
-    }
-
-    function openMarksModal(id) {
-        activeStudentId = id;
-        let s = db.students.find(student => student.id === id);
-        document.getElementById('modal-title').innerText = `${s.name} - এর প্রাপ্ত নম্বর`;
-        let container = document.getElementById('modal-inputs'); container.innerHTML = '';
-        let currentMarks = db.marks[id] || {};
-
-        db.subjects.forEach(sub => {
-            let val = currentMarks[sub] || '';
-            container.innerHTML += `<div style="margin-bottom:8px;"><label style="font-size:13px;">${sub}</label><input type="number" id="m-input-${sub}" value="${val}"></div>`;
-        });
-        document.getElementById('marks-modal').classList.remove('hidden');
-    }
-    function closeModal() { document.getElementById('marks-modal').classList.add('hidden'); }
-
-    function saveStudentMarks() {
-        if(!activeStudentId) return;
-        if(!db.marks[activeStudentId]) db.marks[activeStudentId] = {};
-        db.subjects.forEach(sub => { db.marks[activeStudentId][sub] = document.getElementById(`m-input-${sub}`).value.trim(); });
-        saveDB(); alert('নম্বর সংরক্ষিত হয়েছে!'); closeModal();
-    }
-
-    function renderStudentMarksheet() {
-        let view = document.getElementById('student-marks-view');
-        let myMarks = db.marks[session.id] || {};
-        let hasData = false;
-        let table = `<table><tr><th>বিষয়</th><th>প্রাপ্ত নম্বর</th></tr>`;
-        db.subjects.forEach(sub => {
-            let val = myMarks[sub] || '---'; if(myMarks[sub]) hasData = true;
-            table += `<tr><td>${sub}</td><td><strong>${val}</strong></td></tr>`;
-        });
-        table += `</table>`;
-        view.innerHTML = hasData ? table : '<p style="text-align:center; color:red;">মূল্যায়ন চলছে...</p>';
-    }
-
-    // --- NOTICE BOARD ---
-    function loadNoticePage() {
-        if(session.role === 'admin') document.getElementById('admin-notice-box').classList.remove('hidden');
-        else document.getElementById('admin-notice-box').classList.add('hidden');
-        renderNoticeList();
-    }
-
-    function addNotice() {
-        let text = document.getElementById('notice-text').value.trim();
-        if(!text) return alert('নোটিশের ঘর খালি');
-        db.notices.unshift({ id: Date.now(), text, date: new Date().toLocaleDateString('bn-BD') });
-        saveDB(); 
-        document.getElementById('notice-text').value = ''; 
-        renderNoticeList();
-        updateNoticeTicker(); // Realtime ticker update
-    }
-
-    function deleteNotice(id) {
-        if(confirm('নোটিশটি ডিলিট করতে চান?')) { 
-            db.notices = db.notices.filter(n => n.id !== id); 
-            saveDB(); 
-            renderNoticeList();
-            updateNoticeTicker();
-        }
-    }
-
-    function editNotice(id) {
-        let n = db.notices.find(notice => notice.id === id);
-        let updatedText = prompt('নোটিশ এডিট করুন:', n.text);
-        if(updatedText) { 
-            n.text = updatedText.trim(); 
-            saveDB(); 
-            renderNoticeList();
-            updateNoticeTicker();
-        }
-    }
-
-    function renderNoticeList() {
-        let list = document.getElementById('global-notice-list');
-        list.innerHTML = db.notices.length ? '' : '<li>কোনো নোটিশ নেই</li>';
-        db.notices.forEach(n => {
-            let li = document.createElement('li');
-            if(session.role === 'admin') {
-                li.innerHTML = `<div><small style="color:green;">${n.date}</small><p style="margin-top:4px;">${n.text}</p></div>
-                <div style="display:flex; gap:5px;"><button class="btn btn-sec btn-sm" onclick="editNotice(${n.id})"><i class="fa fa-edit"></i></button>
-                <button class="btn btn-danger btn-sm" onclick="deleteNotice(${n.id})"><i class="fa fa-trash"></i></button></div>`;
-            } else {
-                li.innerHTML = `<div><small style="color:green;">${n.date}</small><p style="margin-top:4px;">${n.text}</p></div>`;
-            }
-            list.appendChild(li);
-        });
-    }
-
-    // --- CONTROL / SETTINGS PAGE ---
-    function loadControlPage() {
-        document.getElementById('cfg-madrasa-name').value = db.madrasaName;
-        renderSubjectSettings();
-        renderAllStudentsList();
+    // --- 4. SUPER ADMIN ACTIONS (POST NOTICE, PROFILE EDIT, STUDENT ENTRIES) ---
+    function updateProfile() {
+        db.profile.name = document.getElementById('cfg-name').value.trim();
+        db.profile.address = document.getElementById('cfg-address').value.trim();
+        db.profile.logo = document.getElementById('cfg-logo').value.trim() || "fa-solid fa-mosque";
+        syncStorage();
+        applyProfileDOM();
+        alert('মাদরাসার প্রোফাইল সফলভাবে আপডেট হয়েছে!');
     }
 
     function addStudent() {
-        let name = document.getElementById('new-student-name').value.trim();
-        let id = document.getElementById('new-student-id').value.trim();
-        if(!name || !id) return alert('সব তথ্য দিন');
-        if(db.students.some(s => s.id === id)) return alert('আইডি ইতিমধ্যে রয়েছে!');
-        db.students.push({ name, id }); saveDB();
-        document.getElementById('new-student-name').value = '';
-        document.getElementById('new-student-id').value = '';
-        alert('শিক্ষার্থী যুক্ত হয়েছে!'); loadControlPage();
-    }
+        let cls = document.getElementById('new-std-class').value;
+        let name = document.getElementById('new-std-name').value.trim();
+        let id = document.getElementById('new-std-id').value.trim();
 
-    function addTeacher() {
-        let name = document.getElementById('new-teacher-name').value.trim();
-        let id = document.getElementById('new-teacher-id').value.trim();
-        if(!name || !id) return alert('সব তথ্য দিন');
-        if(db.teachers.some(t => t.id === id)) return alert('আইডি ইতিমধ্যে রয়েছে!');
-        db.teachers.push({ name, id }); saveDB();
-        document.getElementById('new-teacher-name').value = '';
-        document.getElementById('new-teacher-id').value = '';
-        alert('শিক্ষক সফলভাবে যুক্ত হয়েছেন!');
-    }
+        if(!name || !id) return alert('নাম এবং রোল প্রদান করুন!');
+        if(db.students.some(s => s.id === id && s.class === cls)) return alert('এই শ্রেণীতে উক্ত আইডিটি অলরেডি এন্ট্রি আছে!');
 
-    function deleteStudent(id) {
-        if(confirm('শিক্ষার্থীকে বাদ দিতে চান?')) {
-            db.students = db.students.filter(s => s.id !== id);
-            delete db.marks[id]; saveDB(); loadControlPage();
+        db.students.push({ name, id, class: cls });
+        syncStorage();
+        alert('নতুন শিক্ষার্থী সফলভাবে এন্ট্রি করা হয়েছে!');
+        document.getElementById('new-std-name').value = '';
+        document.getElementById('new-std-id').value = '';
+        
+        if(session.role === 'admin') {
+            populateFeesStudentDropdown();
+            renderManageStudents();
         }
     }
 
-    function renderSubjectSettings() {
-        let container = document.getElementById('subject-settings-inputs'); container.innerHTML = '';
-        db.subjects.forEach((sub, idx) => {
-            container.innerHTML += `<div style="margin-bottom:5px;"><input type="text" id="sub-cfg-${idx}" value="${sub}"></div>`;
+    function addTeacher() {
+        let name = document.getElementById('new-tch-name').value.trim();
+        let id = document.getElementById('new-tch-id').value.trim();
+        let pass = document.getElementById('new-tch-pass').value.trim();
+
+        if(!name || !id || !pass) return alert('শিক্ষকের সব তথ্য পূরণ করুন!');
+        if(db.teachers.some(t => t.id === id)) return alert('এই শিক্ষক আইডিটি ইতোমধ্যে ব্যবহৃত হয়েছে!');
+
+        db.teachers.push({ name, id, pass });
+        syncStorage();
+        alert('নতুন শিক্ষক প্যানেলে যুক্ত হয়েছেন!');
+        document.getElementById('new-tch-name').value = '';
+        document.getElementById('new-tch-id').value = '';
+    }
+
+    function saveNotice() {
+        let text = document.getElementById('notice-input-text').value.trim();
+        if(!text) return alert('নোটিশ খালি রাখা যাবে না!');
+        
+        db.notices.unshift({
+            id: Date.now(),
+            text,
+            date: new Date().toLocaleDateString('bn-BD')
+        });
+
+        syncStorage();
+        document.getElementById('notice-input-text').value = '';
+        applyProfileDOM();
+        renderPublicNotices();
+        alert('নতুন নোটিশ জারি করা হয়েছে!');
+    }
+
+    function deleteNotice(id) {
+        if(confirm('আপনি কি নিশ্চিতভাবে এই নোটিশটি মুছে ফেলতে চান?')) {
+            db.notices = db.notices.filter(n => n.id !== id);
+            syncStorage();
+            applyProfileDOM();
+            renderPublicNotices();
+        }
+    }
+
+    function renderPublicNotices() {
+        let pubList = document.getElementById('public-notice-list');
+        pubList.innerHTML = '';
+
+        if(db.notices.length === 0) {
+            pubList.innerHTML = '<li>কোনো অফিশিয়াল নোটিশ নেই।</li>';
+            return;
+        }
+
+        db.notices.forEach(n => {
+            let li = document.createElement('li');
+            let actionBtn = (session && session.role === 'admin') ? 
+                `<button class="btn btn-danger btn-sm" onclick="deleteNotice(${n.id})"><i class="fa-solid fa-trash"></i></button>` : '';
+            
+            li.innerHTML = `<div><small style="color:green; font-weight:bold;">${n.date}</small><p style="margin-top:4px;">${n.text}</p></div> ${actionBtn}`;
+            pubList.appendChild(li);
         });
     }
 
-    function saveSubjectSettings() {
-        for(let i=0; i<10; i++) { db.subjects[i] = document.getElementById(`sub-cfg-${i}`).value.trim() || `বিষয় ${i+1}`; }
-        saveDB(); alert('১০টি বিষয়ের নাম পরিবর্তন সফল হয়েছে!');
+    function renderManageStudents() {
+        let cls = document.getElementById('manage-class-select').value;
+        let list = document.getElementById('manage-student-list');
+        list.innerHTML = '';
+
+        let filtered = db.students.filter(s => s.class === cls);
+        if(filtered.length === 0) {
+            list.innerHTML = '<li>এই শ্রেণীতে কোনো শিক্ষার্থী নেই।</li>';
+            return;
+        }
+
+        filtered.forEach(s => {
+            list.innerHTML += `<li>
+                <span><strong>${s.name}</strong> (আইডি/রোল: ${s.id})</span>
+                <button class="btn btn-danger btn-sm" onclick="removeStudent('${s.id}','${s.class}')"><i class="fa-solid fa-user-minus"></i> রিমুভ</button>
+            </li>`;
+        });
     }
 
-    function renderAllStudentsList() {
-        let list = document.getElementById('admin-all-students');
-        list.innerHTML = db.students.length ? '' : '<li>কোনো শিক্ষার্থী নেই</li>';
-        db.students.forEach(s => {
-            list.innerHTML += `<li><span><strong>${s.name}</strong> (আইডি: ${s.id})</span>
-            <button class="btn btn-danger btn-sm" onclick="deleteStudent('${s.id}')"><i class="fa fa-user-minus"></i> বাদ দিন</button></li>`;
-        });
+    function removeStudent(id, cls) {
+        if(confirm(`আপনি কি নিশ্চিতভাবে ${cls} শ্রেণীর আইডি: ${id} শিক্ষার্থীকে সিস্টেম থেকে রিমুভ করতে চান?`)) {
+            db.students = db.students.filter(s => !(s.id === id && s.class === cls));
+            syncStorage();
+            renderManageStudents();
+            populateFeesStudentDropdown();
+        }
     }
 </script>
 </body>
