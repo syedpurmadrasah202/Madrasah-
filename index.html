@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সৈয়দপুর সূফী নূর মোহাম্মদীয়া ছিদ্দিকীয়া দাখিল মাদরাসা - Management System</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        islamic: {
+                            dark: '#064e3b',   /* Deep Green */
+                            primary: '#0f766e',/* Teal Green */
+                            light: '#f0fdf4',  /* Light Mint */
+                            gold: '#b45309'    /* Elegant Golden */
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Hind Siliguri', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="bg-islamic-dark text-amber-100 py-2 px-4 text-center text-sm tracking-wide border-b border-amber-500/30">
+        <span class="opacity-90 font-serif">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span> | 
+        <span class="ml-2">স্বাগতম! সৈয়দপুর সূফী নূর মোহাম্মদীয়া ছিদ্দিকীয়া দাখিল মাদরাসা ম্যানেজমেন্ট সিস্টেমে</span>
+    </div>
+
+    <nav class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-islamic-gold">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="bg-islamic-dark text-white p-2.5 rounded-full shadow-md border border-amber-400">
+                        <i class="fa-solid fa-mosque text-2xl text-amber-400"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-bold text-islamic-dark block leading-tight">সৈয়দপুর সূফী নূর মোহাম্মদীয়া ছিদ্দিকীয়া দাখিল মাদরাসা</span>
+                        <span class="text-xs text-islamic-gold font-semibold tracking-wider">সৈয়দপুর, চাটখিল, নোয়াখালী (স্থাপিত: ১৯৯৫ খ্রি.)</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6 font-semibold">
+                    <a href="#home" class="text-islamic-dark hover:text-islamic-gold transition"><i class="fa-solid fa-house mr-1"></i> হোম</a>
+                    <a href="#notices" class="text-islamic-dark hover:text-islamic-gold transition"><i class="fa-solid fa-bullhorn mr-1"></i> নোটিশ</a>
+                    <button onclick="openModal('loginModal')" class="bg-islamic-primary hover:bg-islamic-dark text-white px-5 py-2 rounded-lg transition shadow-md flex items-center">
+                        <i class="fa-solid fa-right-to-bracket mr-2"></i> লগইন পোর্টাল
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <section id="home" class="mb-12">
+            <div class="bg-gradient-to-r from-islamic-dark to-islamic-primary rounded-2xl p-8 md:p-12 text-white shadow-xl relative overflow-hidden">
+                <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none">
+                    <i class="fa-solid fa-kaaba text-[200px]"></i>
+                </div>
+                <div class="max-w-2xl">
+                    <span class="bg-amber-500 text-islamic-dark px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">MMS Portal v2.0</span>
+                    <h1 class="text-3xl md:text-5xl font-bold mt-4 leading-tight">স্মার্ট ও আধুনিক দ্বীনি শিক্ষা ব্যবস্থাপনা</h1>
+                    <p class="mt-4 text-emerald-100 leading-relaxed">হাজিরা, পরীক্ষার ফলাফল, বেতন ও মাদরাসার যাবতীয় প্রাতিষ্ঠানিক কার্যক্রম এখন একটিমাত্র নিরাপদ ড্যাশবোর্ডে।</p>
+                    <div class="mt-8 flex flex-wrap gap-4">
+                        <button onclick="toggleDashboard('admin')" class="bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-3 rounded-xl shadow-lg transition"><i class="fa-solid fa-user-shield mr-2"></i>এডমিন ড্যাশবোর্ড</button>
+                        <button onclick="toggleDashboard('teacher')" class="bg-white hover:bg-gray-100 text-islamic-dark font-bold px-6 py-3 rounded-xl shadow-lg transition"><i class="fa-solid fa-chalkboard-teacher mr-2"></i>শিক্ষক প্যানেল</button>
+                        <button onclick="toggleDashboard('student')" class="bg-emerald-800 hover:bg-emerald-900 text-white font-bold px-6 py-3 rounded-xl border border-emerald-600 shadow-lg transition"><i class="fa-solid fa-user-graduate mr-2"></i>ছাত্র পোর্টাল</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="dashboardContainer" class="hidden transition-all duration-300">
+            <div class="flex items-center justify-between border-b-2 border-dashed border-gray-300 pb-4 mb-6">
+                <h2 id="dashboardTitle" class="text-2xl font-bold text-islamic-dark flex items-center">
+                    </h2>
+                <button onclick="closeDashboard()" class="text-red-600 hover:text-red-800 font-semibold flex items-center bg-red-50 px-3 py-1.5 rounded-lg border border-red-200">
+                    <i class="fa-solid fa-circle-xmark mr-1.5"></i> বন্ধ করুন
+                </button>
+            </div>
+
+            <div id="adminDashboard" class="hidden">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-emerald-600 flex items-center justify-between">
+                        <div><p class="text-sm text-gray-500 font-semibold">মোট শিক্ষার্থী</p><h3 class="text-2xl font-bold text-gray-800">৪৫০ জন</h3></div>
+                        <div class="text-emerald-600 bg-emerald-50 p-3 rounded-full"><i class="fa-solid fa-users text-xl"></i></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-amber-600 flex items-center justify-between">
+                        <div><p class="text-sm text-gray-500 font-semibold">মোট শিক্ষক</p><h3 class="text-2xl font-bold text-gray-800">১৮ জন</h3></div>
+                        <div class="text-amber-600 bg-amber-50 p-3 rounded-full"><i class="fa-solid fa-user-tie text-xl"></i></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-blue-600 flex items-center justify-between">
+                        <div><p class="text-sm text-gray-500 font-semibold">চলতি মাসের আয়</p><h3 class="text-2xl font-bold text-gray-800">৳ ২,৩৫,০০০</h3></div>
+                        <div class="text-blue-600 bg-blue-50 p-3 rounded-full"><i class="fa-solid fa-wallet text-xl"></i></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-red-600 flex items-center justify-between">
+                        <div><p class="text-sm text-gray-500 font-semibold">মোট বকেয়া ফি</p><h3 class="text-2xl font-bold text-gray-800">৳ ৪২,৫০০</h3></div>
+                        <div class="text-red-600 bg-red-50 p-3 rounded-full"><i class="fa-solid fa-hand-holding-dollar text-xl"></i></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-sm overflow-hidden">
+                    <div class="p-5 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+                        <h4 class="font-bold text-islamic-dark"><i class="fa-solid fa-list-check mr-2"></i>সাম্প্রতিক পেমেন্ট হিস্টোরি</h4>
+                        <button onclick="alert('PDF ডাউনলোড হচ্ছে...')" class="bg-islamic-primary text-white px-3 py-1 rounded text-sm hover:bg-islamic-dark transition"><i class="fa-solid fa-file-pdf mr-1"></i> Export PDF</button>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-100 text-slate-700 text-sm">
+                                    <th class="p-4">রসিদ নং</th><th class="p-4">শিক্ষার্থীর নাম</th><th class="p-4">শ্রেণি</th><th class="p-4">টাকার পরিমাণ</th><th class="p-4">স্ট্যাটাস</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm divide-y divide-gray-100">
+                                <tr>
+                                    <td class="p-4 font-mono font-bold">#INV-9081</td><td class="p-4">আহমেদ মুস্তফা</td><td class="p-4">দাখিল ১০ম</td><td class="p-4">৳ ৫০০.০০</td><td class="p-4"><span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full text-xs font-semibold">পরিশোধিত</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="teacherDashboard" class="hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h3 class="font-bold text-lg text-islamic-dark mb-4"><i class="fa-solid fa-calendar-check mr-2 text-amber-500"></i>আজকের ক্লাসের হাজিরা</h3>
+                        <div class="space-y-3">
+                            <label class="block text-sm font-semibold">শ্রেণি নির্বাচন করুন</label>
+                            <select class="w-full border p-2.5 rounded-lg focus:ring-2 focus:ring-islamic-primary outline-none">
+                                <option>দাখিল ১০ম (ক শাখা)</option>
+                                <option>দাখিল ৯ম (খ শাখা)</option>
+                            </select>
+                            <button onclick="alert('হাজিরা শিট লোড হয়েছে।')" class="w-full bg-islamic-gold text-white py-2 rounded-lg font-bold hover:bg-amber-800 transition">হাজিরা শুরু করুন</button>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 md:col-span-2">
+                        <h3 class="font-bold text-lg text-islamic-dark mb-4"><i class="fa-solid fa-pen-to-square mr-2 text-amber-500"></i>পরীক্ষার নম্বর এন্ট্রি</h3>
+                        <p class="text-sm text-gray-500 mb-4">অর্ধবার্ষিক পরীক্ষা ২০২৬ এর নম্বর ইনপুট করতে নিচের বাটনে ক্লিক করুন।</p>
+                        <button class="bg-islamic-primary text-white px-4 py-2 rounded-lg hover:bg-islamic-dark transition"><i class="fa-solid fa-plus mr-1"></i> মার্কস এন্ট্রি প্যানেল</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="studentDashboard" class="hidden">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 text-center">
+                        <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-4 border-4 border-islamic-light overflow-hidden flex items-center justify-center">
+                            <i class="fa-solid fa-user text-5xl text-gray-400"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-gray-800">আহমেদ মুস্তফা</h3>
+                        <p class="text-sm text-islamic-gold font-semibold">শ্রেণি: দাখিল ১০ম | রোল: ১০</p>
+                        <hr class="my-4">
+                        <div class="text-left text-sm space-y-2">
+                            <p><strong>রেজিঃ নম্বর:</strong> REG123456</p>
+                            <p><strong>পিতার নাম:</strong> আব্দুর রহমান</p>
+                            <p><strong>মোবাইল:</strong> ০১৯১১২২৩৩৪৪</p>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-200">
+                                <h4 class="font-bold text-emerald-900"><i class="fa-solid fa-check-double mr-1.5"></i>চলতি মাসের হাজিরা</h4>
+                                <p class="text-2xl font-bold text-emerald-700 mt-2">৯৪%</p>
+                            </div>
+                            <div class="bg-amber-50 p-5 rounded-xl border border-amber-200">
+                                <h4 class="font-bold text-amber-900"><i class="fa-solid fa-receipt mr-1.5"></i>চলতি মাসের বেতন</h4>
+                                <p class="text-2xl font-bold text-amber-700 mt-2">পরিশোধিত</p>
+                                <button onclick="alert('রসিদ PDF ডাউনলোড হচ্ছে...')" class="mt-2 text-xs bg-white text-amber-800 px-3 py-1 rounded border border-amber-300 font-semibold hover:bg-amber-100 transition"><i class="fa-solid fa-download mr-1"></i> রসিদ ডাউনলোড</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="notices" class="mt-12">
+            <h2 class="text-2xl font-bold text-islamic-dark mb-6 flex items-center"><i class="fa-solid fa-bell text-amber-500 mr-2 animate-swing"></i> সাধারণ নোটিশ বোর্ড</h2>
+            <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+                <div class="border-l-4 border-islamic-gold pl-4 py-2 mb-4 bg-amber-50/50 rounded-r-lg">
+                    <span class="text-xs text-gray-500 font-bold font-mono">২০ জুন, ২০২৬</span>
+                    <h3 class="font-bold text-lg text-gray-800 mt-0.5">ঈদুল আজহার ছুটি ও পরীক্ষা সংক্রান্ত বিজ্ঞপ্তি</h3>
+                    <p class="text-sm text-gray-600 mt-1">আগামী ২৫শে জুন ২০২৬ থেকে মাদরাসার সকল ক্লাস ছুটি থাকবে। ছুটি শেষে নতুন রুটিন অনুযায়ী ক্লাস টেস্ট অনুষ্ঠিত হবে।</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-islamic-dark text-white mt-20 border-t-4 border-islamic-gold">
+        <div class="max-w-7xl mx-auto px-4 py-8 text-center text-sm opacity-90">
+            <p>&copy; ২০২৬ সৈয়দপুর সূফী নূর মোহাম্মদীয়া ছিদ্দিকীয়া দাখিল মাদরাসা। সর্বস্বত্ব সংরক্ষিত।</p>
+            <p class="text-xs text-amber-400 mt-1">কারিগরি সহযোগিতায়: Full-Stack Smart Web Framework</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleDashboard(role) {
+            // Hide all panels
+            document.getElementById('adminDashboard').classList.add('hidden');
+            document.getElementById('teacherDashboard').classList.add('hidden');
+            document.getElementById('studentDashboard').classList.add('hidden');
+            
+            // Show Container
+            const container = document.getElementById('dashboardContainer');
+            container.classList.remove('hidden');
+            
+            // Show Specific Panel
+            const title = document.getElementById('dashboardTitle');
+            if(role === 'admin') {
+                document.getElementById('adminDashboard').classList.remove('hidden');
+                title.innerHTML = `<i class="fa-solid fa-user-shield text-amber-500 mr-2"></i> সুপার এডমিন কন্ট্রোল ড্যাশবোর্ড`;
+            } else if(role === 'teacher') {
+                document.getElementById('teacherDashboard').classList.remove('hidden');
+                title.innerHTML = `<i class="fa-solid fa-chalkboard-teacher text-amber-500 mr-2"></i> শিক্ষক প্যানেল ও রেজিস্টার`;
+            } else if(role === 'student') {
+                document.getElementById('studentDashboard').classList.remove('hidden');
+                title.innerHTML = `<i class="fa-solid fa-user-graduate text-amber-500 mr-2"></i> ছাত্র প্রোফাইল ও তথ্য পোর্টাল`;
+            }
+            // Smooth Scroll to container
+            container.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeDashboard() {
+            document.getElementById('dashboardContainer').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
