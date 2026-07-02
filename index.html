@@ -97,7 +97,6 @@
 </head>
 <body>
 
-<!-- FORCE FORWARD NEW DESIGN NOTICE OVERRIDE -->
 <div id="force-version-tag" style="background:#40916c; color:white; text-align:center; padding:5px; font-size:11px; font-weight:bold;">সংস্করণ: ২.০ (সর্বশেষ ফ্রেশ ড্যাশবোর্ড আপডেট)</div>
 
 <!-- 1. LANDING SCREEN -->
@@ -247,7 +246,7 @@
         <div id="card-fees" class="card hidden">
             <h3><i class="fa-solid fa-wallet"></i> বেতন ও মাসিক ফি প্যানেল</h3>
             <div id="fees-admin-inputs" class="hidden">
-                <label>举 শিক্ষার্থী নির্বাচন (সব শ্রেণী হতে)</label>
+                <label>শিক্ষার্থী নির্বাচন (সব শ্রেণী হতে)</label>
                 <select id="fees-student-id"></select>
                 <input type="text" id="fees-purpose" placeholder="ফির বিবরণ (যেমন: রমজান মাসের বেতন)">
                 <input type="number" id="fees-amount" placeholder="টাকার পরিমাণ">
@@ -284,7 +283,7 @@
                     <option value="3rd">৩য় শ্রেণী</option>
                 </select>
                 <div class="grid-2">
-                    <input type="text" id="new-std-name" placeholder="暗 শিক্ষার্থীর নাম">
+                    <input type="text" id="new-std-name" placeholder="শিক্ষার্থী নাম">
                     <input type="text" id="new-std-id" placeholder="আইডি / রোল নম্বর">
                 </div>
                 <div class="grid-2">
@@ -327,10 +326,9 @@
 
 <script>
     // --- FORCE SYSTEM RESET PATTERN TO BYPASS COLD CACHE ---
-    // This strictly ensures previous local storage schemes are auto-wiped immediately.
     const FRESH_VERSION_KEY = "madrasah_v4_system_reset";
     if (!localStorage.getItem(FRESH_VERSION_KEY)) {
-        localStorage.clear(); // Wipe ancient storage deadlocks
+        localStorage.clear();
         localStorage.setItem(FRESH_VERSION_KEY, "true");
     }
 
